@@ -83,10 +83,14 @@
   <section class="thick mt-2 grid grid-cols-6 gap-3">
     @for(i of [1,2,3,4,5,6,7,8,9,0,0,0,0,0]; track $index){
     <div
-      class="col-span-1 overflow-hidden bg-white shadow relative max-h-[408px]"
+      class="col-span-6 md:col-span-3 lg:col-span-2 xl:col-span-1 overflow-hidden bg-white shadow relative max-h-[408px]"
     >
       <div>
-        <img class="block" src="assets/pexels-photo-54277.jpeg" alt="" />
+        <img
+          class="block h-[208px] w-[100%] object-fit-contain"
+          src="assets/pexels-photo-54277.jpeg"
+          alt=""
+        />
       </div>
       <div class="px-5 py-3 flex flex-col gap-2">
         <div>
