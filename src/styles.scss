@@ -1,15 +1,34 @@
-
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
 @use "tailwindcss";
+@use "@angular/material" as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+
+      density: 0,
+    )
+  );
+}
+
 @font-face {
-  font-family: "cairo";
+  font-family: "tejwal";
   src: url("../public/assets/fonts/Tajawal/Tajawal-Medium.ttf");
 }
 :root {
-  --main-color: rgba(122, 177, 184, 0.9);
-  font-family: cairo;
+  --main-color: rgb(122, 177, 184);
   --sec-color: #568e96;
 }
 body {
+  font-family: tejwal !important;
   direction: rtl !important;
-  font-size: 15px;
+  font-size: 14px;
+  height: 100%;
+  margin: 0;
 }

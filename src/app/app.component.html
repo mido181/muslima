@@ -1,69 +1,110 @@
 <header
   style="background-color: var(--main-color)"
-  class="text-white h-[46px] flex justify-between items-center"
+  class="text-gray-100 h-[46px] flex justify-between items-center fixed z-100 w-[100%] mt-[-40px]"
 >
   <h1 class="mr-5 text-[23px] font-bold" style="color: var(--sec-color)">
     Muslima
   </h1>
   <nav>
-    <ul class="hidden md:flex justify-between gap-40 items-center text-[18px]">
-      <li>متصل الأن</li>
-      <li>الشركاء</li>
-      <li>بحث</li>
-      <li>الرسائل</li>
-      <li>النشاط</li>
+    <ul
+      class="px-2 hidden flex md:flex-row md:flex justify-center md:justify-between md:gap-15 lg:gap-30 items-center text-[18px]"
+    >
+      <li class="relative">
+        <a href=""> متصل الأن </a>
+        <small
+          style="background-color: var(--sec-color)"
+          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
+        >
+          1
+        </small>
+      </li>
+      <li class="relative">
+        <a href="">الشركاء</a>
+        <small
+          style="background-color: var(--sec-color)"
+          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
+        >
+          1
+        </small>
+      </li>
+      <li class="relative">
+        <a href="">بحث</a>
+
+        <small
+          style="background-color: var(--sec-color)"
+          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
+        >
+          1
+        </small>
+      </li>
+      <li class="relative">
+        <a href="">الرسائل</a>
+        <small
+          style="background-color: var(--sec-color)"
+          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
+        >
+          1
+        </small>
+      </li>
+      <li class="relative">
+        <a href="">النشاط</a>
+
+        <small
+          style="background-color: var(--sec-color)"
+          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
+        >
+          1
+        </small>
+      </li>
     </ul>
   </nav>
 
   <section>
     <nav>
-      <ul class="hidden md:flex ml-5 justify-between items-center">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+      <ul class="hidden md:flex ml-5 justify-between items-center gap-2">
+        <li>
+          <a class="block rounded-full h-8 w-8 text-center bg-gray-300" href="">
+            <mat-icon class="mt-[3px]"> person</mat-icon>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <mat-icon style="font-size: 26px"> language </mat-icon>
+          </a>
+        </li>
+        <li></li>
       </ul>
     </nav>
+
+    <button class="block md:hidden p-1 rounded ml-2 cursor">
+      <mat-icon class="text-white"
+        ><mat-icon>view_headline</mat-icon>
+      </mat-icon>
+    </button>
   </section>
 </header>
 
-<section class="h-30 py-2 px-5" style="background-color: var(--sec-color)">
-  <h5 class="text-white px-2">الأعضاء المتصلون</h5>
-  <section class="bg-white shadow rounded hidden py-6 md:flex justify-between">
-    <div>
-      <label class="block" for="input">1</label>
+<section class="h-31 py-2 mt-[40px]" style="background-color: var(--sec-color)">
+  <h5 class="text-white py-2 px-8 text-[17px]">الأعضاء المتصلون</h5>
+  <section
+    class="bg-white shadow rounded hidden py-4 md:flex justify-between mx-5"
+  >
+    @for (item of ['ابحث علي','العمر','المحافظة','النوع']; track $index) {
+
+    <div class="mx-5">
+      <label class="block" for="input">{{ item }}</label>
       <select name="" id="">
         <option value="">1</option>
       </select>
     </div>
-    <div>
-      <label class="block" for="input">1</label>
-      <select name="" id="">
-        <option value="">1</option>
-      </select>
-    </div>
-    <div>
-      <label class="block" for="input">1</label>
-      <select name="" id="">
-        <option value="">1</option>
-      </select>
-    </div>
-    <div>
-      <label class="block" for="input">1</label>
-      <select name="" id="">
-        <option value="">1</option>
-      </select>
-    </div>
-    <div>
-      <label class="block" for="input">1</label>
-      <select name="" id="">
-        <option value="">1</option>
-      </select>
-    </div>
-    <div>
-      <label class="block" for="input">1</label>
-      <select name="" id="">
-        <option value="">1</option>
-      </select>
+    }
+    <div class="mx-2">
+      <button
+        style="background-color: var(--main-color)"
+        class="px-3 py-2 rounded text-white shadow-lg"
+      >
+        أبحث
+      </button>
     </div>
   </section>
 </section>
@@ -80,19 +121,34 @@
       </select>
     </div>
   </section>
-  <section class="thick mt-2 grid grid-cols-6 gap-3">
+  <section
+    class="transition duration-3 translate thick mt-2 grid grid-cols-6 gap-3"
+  >
     @for(i of [1,2,3,4,5,6,7,8,9,0,0,0,0,0]; track $index){
     <div
-      class="col-span-6 md:col-span-3 lg:col-span-2 xl:col-span-1 overflow-hidden bg-white shadow relative max-h-[408px]"
+      class="col-span-6 md:col-span-3 lg:col-span-2 xl:col-span-1 overflow-hidden bg-white shadow relative"
     >
       <div>
         <img
-          class="block h-[208px] w-[100%] object-fit-contain"
+          class="block h-[235px] w-[100%]"
           src="assets/pexels-photo-54277.jpeg"
           alt=""
         />
       </div>
-      <div class="px-5 py-3 flex flex-col gap-2">
+      <div class="relative px-5 py-3 flex flex-col gap-2 max-h-[170px]">
+        <small
+          style="background-color: green"
+          class="absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-1000"
+        >
+        </small>
+        <small
+          class="bg-cyan-900 absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-1000"
+        >
+        </small>
+        <small
+          class="absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-1000"
+        >
+        </small>
         <div>
           <p class="">mo</p>
           <div class="text-gray-500 flex items-start gap-1">
@@ -105,13 +161,17 @@
           <p class="text-gray-500">انا متصل بالانترنت</p>
         </div>
         <div class="flex justify-between items-center">
-          <div>
-            <span>icon</span>
-            <span>icon</span>
+          <div class="text-gray-500 flex gap-3 text-big">
+            <span>
+              <mat-icon class="text-big h-4 w-4">favorite</mat-icon>
+            </span>
+            <span>
+              <mat-icon class="text-big h-4 w-4">chat_bubble</mat-icon>
+            </span>
           </div>
-          <div>
+          <div class="text-gray-500 flex gap-2">
+            <mat-icon class="text-big h-4 w-4"> photo_camera </mat-icon>
             <span class="">3</span>
-            <span>icon</span>
           </div>
         </div>
       </div>
