@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+@font-face {
+  font-family: "cairo";
+  src: url("../public/assets/fonts/Tajawal/Tajawal-Medium.ttf");
+}
+:root {
+  --main-color: rgba(122, 177, 184, 0.9);
+  font-family: cairo;
+  --sec-color: #568e96;
+}
+body {
+  direction: rtl !important;
+  font-size: 15px;
+}
