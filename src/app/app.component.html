@@ -1,114 +1,13 @@
-<header
-  style="background-color: var(--main-color)"
-  class="text-gray-100 h-[46px] flex justify-between items-center fixed z-100 w-[100%] mt-[-40px]"
+<app-header></app-header>
+<section
+  class="min-h-31 py-2 mt-[40px]"
+  style="background-color: var(--sec-color)"
 >
-  <h1 class="mr-5 text-[23px] font-bold" style="color: var(--sec-color)">
-    Muslima
-  </h1>
-  <nav>
-    <ul
-      class="px-2 hidden flex md:flex-row md:flex justify-center md:justify-between md:gap-15 lg:gap-30 items-center text-[18px]"
-    >
-      <li class="relative">
-        <a href=""> متصل الأن </a>
-        <small
-          style="background-color: var(--sec-color)"
-          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
-        >
-          1
-        </small>
-      </li>
-      <li class="relative">
-        <a href="">الشركاء</a>
-        <small
-          style="background-color: var(--sec-color)"
-          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
-        >
-          1
-        </small>
-      </li>
-      <li class="relative">
-        <a href="">بحث</a>
+  <!-- <h5 class="text-white py-2 px-8 text-[17px]">الأعضاء المتصلون</h5> -->
 
-        <small
-          style="background-color: var(--sec-color)"
-          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
-        >
-          1
-        </small>
-      </li>
-      <li class="relative">
-        <a href="">الرسائل</a>
-        <small
-          style="background-color: var(--sec-color)"
-          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
-        >
-          1
-        </small>
-      </li>
-      <li class="relative">
-        <a href="">النشاط</a>
-
-        <small
-          style="background-color: var(--sec-color)"
-          class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
-        >
-          1
-        </small>
-      </li>
-    </ul>
-  </nav>
-
-  <section>
-    <nav>
-      <ul class="hidden md:flex ml-5 justify-between items-center gap-2">
-        <li>
-          <a class="block rounded-full h-8 w-8 text-center bg-gray-300" href="">
-            <mat-icon class="mt-[3px]"> person</mat-icon>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <mat-icon style="font-size: 26px"> language </mat-icon>
-          </a>
-        </li>
-        <li></li>
-      </ul>
-    </nav>
-
-    <button class="block md:hidden p-1 rounded ml-2 cursor">
-      <mat-icon class="text-white"
-        ><mat-icon>view_headline</mat-icon>
-      </mat-icon>
-    </button>
-  </section>
-</header>
-
-<section class="h-31 py-2 mt-[40px]" style="background-color: var(--sec-color)">
-  <h5 class="text-white py-2 px-8 text-[17px]">الأعضاء المتصلون</h5>
-  <section
-    class="bg-white shadow rounded hidden py-4 md:flex justify-between mx-5"
-  >
-    @for (item of ['ابحث علي','العمر','المحافظة','النوع']; track $index) {
-
-    <div class="mx-5">
-      <label class="block" for="input">{{ item }}</label>
-      <select name="" id="">
-        <option value="">1</option>
-      </select>
-    </div>
-    }
-    <div class="mx-2">
-      <button
-        style="background-color: var(--main-color)"
-        class="px-3 py-2 rounded text-white shadow-lg"
-      >
-        أبحث
-      </button>
-    </div>
-  </section>
+  <app-sub-header></app-sub-header>
 </section>
-<main class="px-10 mt-2">
+<main class="px-10 mt-20">
   <section class="mt-2 flex justify-between">
     <span>1 - 35 من 1453</span>
     <div>
@@ -125,60 +24,8 @@
     class="transition duration-3 translate thick mt-2 grid grid-cols-6 gap-3"
   >
     @for(i of [1,2,3,4,5,6,7,8,9,0,0,0,0,0]; track $index){
-    <div
-      class="col-span-6 md:col-span-3 lg:col-span-2 xl:col-span-1 overflow-hidden bg-white shadow relative"
-    >
-      <div>
-        <img
-          class="block h-[235px] w-[100%]"
-          src="assets/pexels-photo-54277.jpeg"
-          alt=""
-        />
-      </div>
-      <div class="relative px-5 py-3 flex flex-col gap-2 max-h-[170px]">
-        <small
-          style="background-color: green"
-          class="absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-1000"
-        >
-        </small>
-        <small
-          class="bg-cyan-900 absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-1000"
-        >
-        </small>
-        <small
-          class="absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-1000"
-        >
-        </small>
-        <div>
-          <p class="">mo</p>
-          <div class="text-gray-500 flex items-start gap-1">
-            <span>31</span>
-            <span>القاهره</span>
-          </div>
-        </div>
-        <div>
-          <p class="text-gray-500">ابحث علي: انثي , 30-30</p>
-          <p class="text-gray-500">انا متصل بالانترنت</p>
-        </div>
-        <div class="flex justify-between items-center">
-          <div
-            class="text-gray-500 flex gap-3 justify-center items-center text-big"
-          >
-            <div class="flex items-center">
-              <mat-icon class="text-big">favorite</mat-icon>
-            </div>
-
-            <div class="flex items-center">
-              <mat-icon class="text-big">chat_bubble</mat-icon>
-            </div>
-          </div>
-          <div class="text-gray-500 flex gap-2">
-            <mat-icon class="text-big"> photo_camera </mat-icon>
-            <span class="">3</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-card></app-card>
     }
   </section>
 </main>
+<app-footer></app-footer>
