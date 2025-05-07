@@ -3,14 +3,14 @@
   class="text-gray-100 h-[44px] flex justify-between items-center fixed z-1000000 w-[100%] mt-[-40px]"
 >
   <h1 class="mr-5 text-[23px] font-bold" style="color: var(--sec-color)">
-    Muslima
+    <a routerLink="home" > Muslima </a>
   </h1>
   <nav>
     <ul
       class="px-2 hidden flex md:flex-row md:flex justify-center md:justify-between md:gap-15 lg:gap-30 items-center text-[18px]"
     >
       <li class="relative">
-        <a href=""> متصل الأن </a>
+        <a routerLink="online"> متصل الأن </a>
         <small
           style="background-color: var(--sec-color)"
           class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
@@ -19,7 +19,7 @@
         </small>
       </li>
       <li class="relative">
-        <a href="">الشركاء</a>
+        <a routerLink="matches">الشركاء</a>
         <small
           style="background-color: var(--sec-color)"
           class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
@@ -27,8 +27,8 @@
           1
         </small>
       </li>
-      <li class="relative">
-        <a href="">بحث</a>
+      <!-- <li class="relative">
+        <a routerLink="matches">بحث</a>
 
         <small
           style="background-color: var(--sec-color)"
@@ -36,9 +36,9 @@
         >
           1
         </small>
-      </li>
+      </li> -->
       <li class="relative">
-        <a href="">الرسائل</a>
+        <a routerLink="messages">الرسائل</a>
         <small
           style="background-color: var(--sec-color)"
           class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
@@ -46,15 +46,25 @@
           1
         </small>
       </li>
-      <li class="relative">
-        <a href="">النشاط</a>
-
+      <li class="relative" (click)="dropDown()">
+        <a>النشاط</a>
         <small
           style="background-color: var(--sec-color)"
           class="absolute top-[-5px] left-[-25px] block rounded-full w-[20px] h-[20px] text-center bg-gray-100 z-1000"
         >
           1
         </small>
+        <section
+          class=""
+          [ngClass]="{
+            'opacity-0': showDropDown,
+            'transition-all': showDropDown,
+            'duration-300': showDropDown,
+            'overflow-hidden': showDropDown,
+          }"
+        >
+          <app-dropdown></app-dropdown>
+        </section>
       </li>
     </ul>
   </nav>
@@ -63,12 +73,12 @@
     <nav>
       <ul class="hidden md:flex ml-5 justify-between items-center gap-2">
         <li>
-          <a class="block text-center" href="">
+          <a class="block text-center" routerLink="matches">
             <mat-icon>language </mat-icon>
           </a>
         </li>
         <li>
-          <a class="block rounded-full text-center" href="">
+          <a class="block rounded-full text-center" routerLink="matches">
             <img
               class="block h-9 w-9 rounded-full border-white border-2"
               src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
@@ -78,7 +88,7 @@
         </li>
 
         <li>
-          <a href="">
+          <a routerLink="matches">
             <mat-icon>settings </mat-icon>
           </a>
         </li>

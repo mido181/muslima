@@ -1,1 +1,55 @@
-<p>home works!</p>
+<app-sub-header>
+  <section
+    class="my-10 md:flex mx-5 gap-4 flex-wrap items-center justify-between"
+  >
+    <div class="flex gap-5">
+      <img
+        class="h-20 w-20 block rounded-full"
+        src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
+        alt=""
+      />
+      <div class="flex flex-col gap-3">
+        <h5 class="text-white">مرحبا Mohamed</h5>
+        <button
+          class="hidden md:block rounded p-3 text-white max min-h-[3rem]"
+          style="background-color: var(--main-color)"
+        >
+          قم بتحميل صور متعددة الاغراض الي معرض الصور الخاص بك
+        </button>
+        <button
+          class="block md:hidden rounded p-3 text-white max min-h-[3rem]"
+          style="background-color: var(--main-color)"
+        >
+          أذهب لمعرض الصور
+        </button>
+      </div>
+    </div>
+    <div class="hidden md:flex gap-15 xl:mx-20">
+      @for (item of [1,2,3,4,5]; track $index) {
+      <app-border-circle>
+        <mat-icon
+          icon
+          style="
+            opacity: 0.9;
+            color: #3f7580;
+            height: 45px;
+            width: 45px;
+            font-size: 45px;
+          "
+        >
+          favorite
+        </mat-icon>
+        <span number class="text-[1rem] text-gray-100 block absolute top-[30%]">
+          2
+        </span>
+      </app-border-circle>
+      }
+    </div>
+  </section>
+</app-sub-header>
+<main class="px-10 mt-5">
+  <app-orderby></app-orderby>
+  <section>
+    <app-card-contanier></app-card-contanier>
+  </section>
+</main>

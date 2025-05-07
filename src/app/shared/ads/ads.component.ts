@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-ads',
   imports: [],
   templateUrl: './ads.component.html',
-  styleUrl: './ads.component.scss'
+  styleUrl: './ads.component.scss',
 })
 export class AdsComponent {
-
+  adText: string = '';
 }

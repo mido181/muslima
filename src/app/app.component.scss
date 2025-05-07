@@ -1,3 +1,18 @@
 .text-big {
   font-size: 25px;
 }
+
+::ng-deep router-outlet + * {
+  animation:fade 0.5 ;
+  -webkit-animation:fade 0.5 ;
+}
+
+@keyframes fade {
+from{
+  opacity: 0;
+}
+to{
+  opacity: 1;
+}
+
+}

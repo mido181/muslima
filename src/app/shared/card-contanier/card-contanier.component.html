@@ -1,1 +1,7 @@
-<p>card-contanier works!</p>
+<section
+  class="transition duration-3 translate thick mt-2 grid grid-col-12 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 px-20"
+>
+  @for(i of cardQuntity(); track $index){
+  <app-card></app-card>
+  }
+</section>
