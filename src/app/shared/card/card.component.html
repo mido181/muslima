@@ -1,54 +1,44 @@
 <div
-      class="col-span-6 md:col-span-3 lg:col-span-2 xl:col-span-1 overflow-hidden bg-white shadow relative"
-    >
-      <div>
-        <img
-          class="block h-[235px] w-[100%]"
-          src="assets/pexels-photo-54277.jpeg"
-          alt=""
-        />
-      </div>
-      <div class="relative px-5 py-3 flex flex-col gap-2 max-h-[170px]">
-        <small
-          style="background-color: green"
-          class="absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-100"
-        >
-        </small>
-        <small
-          class="bg-cyan-900 absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-100"
-        >
-        </small>
-        <small
-          class="absolute top-[-8px] left-2 border-white block rounded-full w-[16px] h-[16px] text-center bg-gray-100 z-100"
-        >
-        </small>
-        <div>
-          <p class="">mo</p>
-          <div class="text-gray-500 flex items-start gap-1">
-            <span>31</span>
-            <span>القاهره</span>
-          </div>
-        </div>
-        <div>
-          <p class="text-gray-500">ابحث علي: انثي , 30-30</p>
-          <p class="text-gray-500">انا متصل بالانترنت</p>
-        </div>
-        <div class="flex justify-between items-center">
-          <div
-            class="text-gray-500 flex gap-3 justify-center items-center text-big"
-          >
-            <div class="flex items-center">
-              <mat-icon class="text-big">favorite</mat-icon>
-            </div>
-
-            <div class="flex items-center">
-              <mat-icon class="text-big">chat_bubble</mat-icon>
-            </div>
-          </div>
-          <div class="text-gray-500 flex gap-2">
-            <mat-icon class="text-big"> photo_camera </mat-icon>
-            <span class="">3</span>
-          </div>
-        </div>
+  class="col-span-6 md:col-span-3 lg:col-span-2 xl:col-span-1 overflow-hidden bg-white shadow relative"
+>
+  <div>
+    <a [routerLink]="['/profile/', 1]">
+      <img
+        class="block h-[235px] w-[100%]"
+        src="assets/pexels-photo-54277.jpeg"
+        alt=""
+      />
+    </a>
+  </div>
+  <div class="relative px-5 py-3 flex flex-col gap-2 max-h-[170px]">
+    <app-user-status></app-user-status>
+    <div>
+      <p class="">mo</p>
+      <div class="text-gray-500 flex items-start gap-1">
+        <span>31</span>
+        <span>القاهره</span>
       </div>
     </div>
+    <div>
+      <p class="text-gray-500">ابحث علي: انثي , 30-30</p>
+      <p class="text-gray-500">انا متصل بالانترنت</p>
+    </div>
+    <div class="flex justify-between items-center">
+      <div
+        class="text-gray-500 flex gap-3 justify-center items-center text-big"
+      >
+        <div class="flex items-center">
+          <mat-icon class="text-big">favorite</mat-icon>
+        </div>
+
+        <div class="flex items-center">
+          <mat-icon class="text-big">chat_bubble</mat-icon>
+        </div>
+      </div>
+      <div class="text-gray-500 flex gap-2">
+        <mat-icon class="text-big"> photo_camera </mat-icon>
+        <span class="">3</span>
+      </div>
+    </div>
+  </div>
+</div>

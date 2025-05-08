@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './ads.component.scss',
 })
 export class AdsComponent {
-  adText: string = '';
+  adText: string = 'here goes ads';
 }

@@ -1,0 +1,114 @@
+<app-orderby>
+  <a label routerLink="/home"> العودة إلي النتائج</a>
+  <p value>170 / 4</p>
+</app-orderby>
+
+<main class="mx-20 md:mx-40 xl:mx-50">
+  <section class="grid col-12 md:grid-cols-8">
+    <div
+      class="bg-gray-100 px-10 col-span-12 md:col-span-3 flex justify-center"
+    >
+      <img class="block" src="https://placehold.co/300x300.png" alt="" />
+    </div>
+    <div class="p-5 flex flex-col col-span-12 md:col-span-5">
+      <div class="mb-5">
+        <section class="personal-info flex justify-between">
+          <div class="flex flex-col gap-1">
+            <div class="flex gap-4">
+              <strong>Haticenurnaz</strong>
+              <div>
+                <app-user-status></app-user-status>
+                <span class="text-gray-400">
+                  <mat-icon>person</mat-icon>
+                </span>
+              </div>
+            </div>
+            <div class="text-gray-500">
+              <p>35 • Amsterdam, Noord-Holland, هولندا</p>
+              <p>أنثى / ارمل / ID: 30637686</p>
+              <p>ابحث على ذكر 25 - 65 الذين يعيشون فى مجال 250</p>
+              <p>آخر نشاط منذ 2 أسابيع</p>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between py-1">
+            <div class="flex gap-4">
+              <div
+                class="text-white h-11 w-11 bg-gray-600 rounded-full flex justify-center items-center"
+              >
+                <mat-icon>favorite</mat-icon>
+              </div>
+              <div
+                class="text-white h-11 w-11 bg-gray-600 rounded-full flex justify-center items-center"
+              >
+                <mat-icon>chat-bubble</mat-icon>
+              </div>
+            </div>
+            <div class="flex gap-2 text-gray-500">
+              <mat-icon>star</mat-icon>
+              <mat-icon>priority_high</mat-icon>
+              <mat-icon>block</mat-icon>
+            </div>
+          </div>
+        </section>
+      </div>
+      <hr class="text-gray-300" />
+      <div>
+        <table class="w-[100%]">
+          <thead>
+            <tr class="text-center" style="color: var(--sec-color)">
+              <th class="py-2 px-4">نظرة سريعة</th>
+              <th class="py-2 px-4">الاسم</th>
+              <th class="py-2 px-4">انها تبحث عن</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-match text-gray-800">
+              <td class="text-center py-2 px-4 text-gray-800">1</td>
+              <td class="text-center py-2 px-4 text-gray-800">2</td>
+              <td class="text-center py-2 px-4 text-gray-800">3</td>
+            </tr>
+            <tr class="table-match text-gray-800">
+              <td class="text-center py-2 px-4 text-gray-800">1</td>
+              <td class="text-center py-2 px-4 text-gray-800">2</td>
+              <td class="text-center py-2 px-4 text-gray-800">3</td>
+            </tr>
+            <tr class="table-match text-gray-800">
+              <td class="text-center py-2 px-4 text-gray-800">1</td>
+              <td class="text-center py-2 px-4 text-gray-800">2</td>
+              <td class="text-center py-2 px-4 text-gray-800">3</td>
+            </tr>
+            <tr class="table-match text-gray-800">
+              <td class="text-center py-2 px-4 text-gray-800">1</td>
+              <td class="text-center py-2 px-4 text-gray-800">2</td>
+              <td class="text-center py-2 px-4 text-gray-800">3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <!-- more info -->
+  <section class="mt-4">
+    <h3 class="" style="color: var(--sec-color)">المزيد عني</h3>
+    <div>
+      <table class="w-[100%]">
+        <thead>
+          <tr class="text-center" style="color: var(--sec-color)">
+            <th class="py-2 px-4">اساسي</th>
+            <th class="py-2 px-4">الاسم</th>
+            <th class="py-2 px-4">انها تبحث عن</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of [1,2,3,4,5,6,23,3,3,3,32,2,3]; track $index) {
+          <tr class="table-match text-gray-800">
+            <td class="text-center py-2 px-4 text-gray-800">1</td>
+            <td class="text-center py-2 px-4 text-gray-800">2</td>
+            <td class="text-center py-2 px-4 text-gray-800">3</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

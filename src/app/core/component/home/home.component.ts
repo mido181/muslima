@@ -6,8 +6,10 @@ import { HeaderComponent } from '../header/header.component';
 import { SubHeaderComponent } from '../../sub-header/sub-header.component';
 import { BorderCircleComponent } from '../../../shared/border-circle/border-circle.component';
 import { CardComponent } from '../../../shared/card/card.component';
-import { CardContanierComponent } from "../../../shared/card-contanier/card-contanier.component";
-import { OrderbyComponent } from "../../../shared/orderby/orderby.component";
+import { CardContanierComponent } from '../../../shared/card-contanier/card-contanier.component';
+import { OrderbyComponent } from '../../../shared/orderby/orderby.component';
+import { AdsComponent } from '../../../shared/ads/ads.component';
+import { ProfileComponent } from '../../../features/profile/profile.component';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +21,10 @@ import { OrderbyComponent } from "../../../shared/orderby/orderby.component";
     BorderCircleComponent,
     SubHeaderComponent,
     CardContanierComponent,
-    OrderbyComponent
-],
+    OrderbyComponent,
+    AdsComponent,
+    ProfileComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
