@@ -1,7 +1,7 @@
-<div class="flex gap-5 relative">
-  <a [routerLink]="['profile', 1]">
+<div class="flex flex-col justify-center items-center gap-5 relative">
+  <a>
     <img
-      class="h-20 w-20 block rounded-full"
+      class="h-40 w-40 block rounded-full"
       src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
       alt=""
     />
@@ -10,11 +10,7 @@
     <div class="flex flex-col items-start gap-1">
       <div class="flex gap-1 text-gray-500">
         <h2 class="text-lg">Mohamed Ashraf</h2>
-        <span class="block"
-          ><mat-icon [ngClass]="{ 'golden-member': true }">
-            person
-          </mat-icon></span
-        >
+        <span class="block"> </span>
       </div>
       <div class="flex gap-2 text-lg">
         <p>25</p>
@@ -23,13 +19,18 @@
       <button
         class="block md:hidden rounded py-3 max min-h-[3rem]"
         style="color: var(--main-color)"
-        [ngClass]="{ 'font-bold': true }"
       >
-محتوي الرسالة      </button>
+        محتوي الرسالة
+      </button>
     </div>
   </a>
-
-  <div class="absolute right-0">
-    <app-user-status></app-user-status>
+  <div>
+    <mat-icon>block</mat-icon>
+    <mat-icon>star</mat-icon>
+    <span>
+      <mat-icon>camera</mat-icon>
+      <small>0 </small>
+    </span>
+    <mat-icon>favorite</mat-icon>
   </div>
 </div>

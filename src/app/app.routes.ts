@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './core/component/home/home.component';
 import { OnlineComponent } from './features/online/online.component';
-import { MessageComponent } from './features/messageComponent/message/message.component';
 import { MatchesComponent } from './features/matches/matches.component';
 import { ProfileComponent } from './features/profile/profile.component';
+import { MessageComponent } from './features/messageComponent/message.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

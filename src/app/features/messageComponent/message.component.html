@@ -1,0 +1,33 @@
+
+<app-messages-room></app-messages-room>
+
+<app-sub-header>
+  <div class="flex justify-start text-base">
+    @for (item of ['المفضلات','لم تقراء','الجميع']; track $index) {
+
+    <button class="flex justify-center py-2 px-4">
+      <a routerLink="" class="pb-1">
+        {{ item }}
+      </a>
+      <!-- [routerLinkActive]="['border-b-3', 'border-bg-white']" -->
+    </button>
+    }
+  </div>
+</app-sub-header>
+<main class="grid grid-cols-12 md:mx-5 pt-10 gap-3">
+  <section class="grid grid-cols-12 col-span-12 md:col-span-9">
+    @for (item of [1,2,3,4]; track $index) {
+    <aside
+      class="col-span-12 md:col-span-6 flex justify-center md:justify-evenly md:items-start py-3"
+    >
+      <app-message-navbar></app-message-navbar>
+    </aside>
+    <section class="hidden md:block md:col-span-6">
+      <app-messages-contanier></app-messages-contanier>
+    </section>
+    }
+  </section>
+  <section class="col-span-3 hidden md:block">
+    <app-ads></app-ads>
+  </section>
+</main>
