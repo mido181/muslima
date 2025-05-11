@@ -1,5 +1,46 @@
-<app-header></app-header>
-<main class="mt-[40px]">
-  <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+<section class="overflow-hidden">
+  <mat-drawer-container [hasBackdrop]="true">
+    <mat-drawer position="end" class="" #drawer mode="over">
+      <section class="mr-5 flex flex-col gap-2">
+        <h1 class="text-[23px] font-bold" style="color: var(--sec-color)">
+          <a routerLink="home"> Muslima </a>
+        </h1>
+        <div class="px-2 flex justify-between">
+          <a routerLink="/online"> متصل الان </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink="/matches"> الشركاء </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink="/messages"> الرسائل </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink=""> ألاعجابات </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink=""> المفضلات </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink=""> من شاهد ملفي الشخصي </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink=""> النشاط </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+      </section>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (isOpen)="$event ? drawer.toggle() : null"></app-header>
+      <main class="mt-10">
+        <router-outlet></router-outlet>
+      </main>
+      <app-footer></app-footer>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</section>

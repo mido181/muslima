@@ -1,48 +1,40 @@
-<ul
-  class="bg-white rounded flex flex-col gap-1 justify-end items-center p-3 text-gray-500 transition duration-500 absolute z-1000"
+<button
+  class="flex flex-row-reverse justify-between hover:transition-[bg] w-[200px] ease-in duration-300 p-3 hover:bg-gray-200"
+  mat-menu-item
 >
-  <li
-    class="flex justify-between hover:transition-[bg] w-[200px] ease-in duration-500 p-2 hover:bg-gray-200 text-[14px]"
-  >
-    <a href=""> الأعجابات </a>
-    <span
-      style="background-color: var(--sec-color)"
-      class="text-white block rounded-full w-[15px] h-[15px] text-center bg-gray-100 text-[10px]"
-    >
-      1
-    </span>
-  </li>
-  <li
-    class="flex justify-between hover:transition-[bg] w-[200px] ease-in duration-500 p-2 hover:bg-gray-200 text-[14px]"
-  >
-    <a href=""> المفضلات </a>
-    <span
-      style="background-color: var(--sec-color)"
-      class="text-white block rounded-full w-[15px] h-[15px] text-center bg-gray-100 text-[10px]"
-    >
-      1
-    </span>
-  </li>
-  <li
-    class="flex justify-between hover:transition-[bg] w-[200px] ease-in duration-500 p-2 hover:bg-gray-200 text-[14px]"
-  >
-    <a href=""> قائمة الحظر </a>
-    <span
-      style="background-color: var(--sec-color)"
-      class="text-white block rounded-full w-[15px] h-[15px] text-center bg-gray-100 text-[10px]"
-    >
-      1
-    </span>
-  </li>
-  <li
-    class="flex justify-between hover:transition-[bg] w-[200px] ease-in duration-500 p-2 hover:bg-gray-200 text-[14px]"
-  >
-    <a href=""> من شاهدة الملف الشخصي </a>
-    <span
-      style="background-color: var(--sec-color)"
-      class="text-white block rounded-full w-[15px] h-[15px] text-center bg-gray-100 text-[10px]"
-    >
-      1
-    </span>
-  </li>
-</ul>
+  <a routerLink=""> {{ item }} </a>
+  <div [matBadge]="notification" class="ml-3"></div>
+</button>
+<!-- <button
+  class="flex flex-row-reverse justify-between hover:transition-[bg] w-[200px] ease-in duration-300 p-3 hover:bg-gray-200"
+  mat-menu-item
+> -->
+<!--  
+<a routerLink=""> المفضلات </a>
+ <div
+    matBadge="1"
+    class="ml-3"
+  ></div>
+</button>
+<button
+  class="flex flex-row-reverse justify-between hover:transition-[bg] w-[200px] ease-in duration-300 p-3 hover:bg-gray-200"
+  mat-menu-item
+>
+ 
+<a routerLink=""> قائمة الحظر </a>
+ <div
+    matBadge="1"
+    class="ml-3"
+  ></div>
+</button>
+<button
+  class="flex flex-row-reverse justify-between hover:transition-[bg] w-[200px] ease-in duration-300 p-3 hover:bg-gray-200"
+  mat-menu-item
+>
+ 
+<a routerLink=""> من شاهد الملف الشخصي </a>
+ <div
+    matBadge="1"
+    class="ml-3"
+  ></div>
+</button> -->

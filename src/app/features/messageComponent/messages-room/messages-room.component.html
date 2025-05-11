@@ -1,36 +1,74 @@
-<div class="flex flex-col justify-center items-center gap-5 relative">
+<div class="flex flex-col justify-center items-center gap-5 relative py-3">
   <a>
     <img
-      class="h-40 w-40 block rounded-full"
+      class="h-20 w-20 md:h-40 md:w-40 block rounded-full"
       src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
       alt=""
     />
   </a>
   <a routerLink="">
-    <div class="flex flex-col items-start gap-1">
-      <div class="flex gap-1 text-gray-500">
+    <div class="flex flex-col items-center">
+      <div class="text-gray-500">
         <h2 class="text-lg">Mohamed Ashraf</h2>
-        <span class="block"> </span>
       </div>
       <div class="flex gap-2 text-lg">
         <p>25</p>
         <p>Egypt ,<small>Giza</small></p>
       </div>
-      <button
-        class="block md:hidden rounded py-3 max min-h-[3rem]"
-        style="color: var(--main-color)"
-      >
-        محتوي الرسالة
-      </button>
     </div>
   </a>
-  <div>
-    <mat-icon>block</mat-icon>
-    <mat-icon>star</mat-icon>
-    <span>
-      <mat-icon>camera</mat-icon>
-      <small>0 </small>
-    </span>
-    <mat-icon>favorite</mat-icon>
+  <div class="flex gap-3">
+    <button matTooltip="حظر ">
+      <mat-icon>block</mat-icon>
+    </button>
+    <button matTooltip="إضافة الي المفضلة">
+      <mat-icon>star</mat-icon>
+    </button>
+    <button matTooltip="إرسال أعجاب">
+      <mat-icon>favorite</mat-icon>
+    </button>
+
+    <button class="flex gap-2 justify-center" matTooltip="الصور">
+      <mat-icon class=""> photo_camera </mat-icon>
+      <span>0 </span>
+    </button>
   </div>
 </div>
+
+<section class="flex flex-col gap-3 mt-20 md:mx-30 mx-5">
+  <section class="flex gap-3 items-center">
+    <a>
+      <img
+        class="h-10 w-10 md:h-20 md:w-20 block rounded-full"
+        src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
+        alt=""
+      />
+    </a>
+
+    <div class="p-3 bg-gray-200 rounded my-3 relative">
+      <div class="text-gray-400 absolute left-0 right-0 top-[-20px]">
+        <span>10-مايو-2025 , </span>
+        <span>11:22 </span>
+      </div>
+      <p class="text-gray-500">this is content of messages</p>
+    </div>
+  </section>
+
+  <section class="flex gap-3 items-center flex-row-reverse">
+    <a>
+      <img
+        class="h-10 w-10 md:h-20 md:w-20 block rounded-full"
+        src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
+        alt=""
+      />
+    </a>
+
+    <div class="p-3 bg-gray-200 rounded my-3 relative">
+      <div class="text-gray-400 absolute left-0 right-0 top-[-20px]">
+        <span>10-مايو-2025 , </span>
+        <span>11:22 </span>
+      </div>
+      <p class="text-gray-500">this is content of messages</p>
+    </div>
+  </section>
+</section>

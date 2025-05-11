@@ -24,7 +24,15 @@ html {
 :root {
   --main-color: rgb(122, 177, 184);
   --sec-color: #568e96;
+  --main-font-color: rgb(236, 240, 240);
+  @include mat.badge-overrides(
+    (
+      background-color: var(--sec-color),
+      text-color: var(--main-font-color),
+    )
+  );
 }
+
 body {
   box-sizing: border-box;
   font-family: tejwal !important;
@@ -33,4 +41,12 @@ body {
   font-weight: 400;
   height: 100%;
   margin: 0;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  top: 50px !important;
+}
+
+.mat-mdc-menu-content {
+  background-color: white;
 }

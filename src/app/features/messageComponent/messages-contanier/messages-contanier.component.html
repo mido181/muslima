@@ -1,11 +1,14 @@
-<section class="flex gap-3 justify-center">
-  <span>
-    <mat-icon class="text-big">chat_bubble_outline</mat-icon>
-  </span>
-  <p class="">this message from me as a test  
-
-    this message from me as a test
-
-  </p>
-  <p>9-5-2025</p>
-</section>
+<a [routerLink]="['/messages-room', 1]">
+  <section class="flex gap-3 justify-center">
+    <span class="relative">
+      <mat-icon class="text-big">chat_bubble_outline</mat-icon>
+      <div class="absolute right-5 top-0 border">
+        <app-user-status>2</app-user-status>
+      </div>
+    </span>
+    <p class="">
+      this message from me as a test this message from me as a test
+    </p>
+    <p>9-5-2025</p>
+  </section>
+</a>

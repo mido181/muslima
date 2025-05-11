@@ -5,10 +5,8 @@ import { Component, Input } from '@angular/core';
   selector: 'app-user-status',
   imports: [NgTemplateOutlet],
   templateUrl: './user-status.component.html',
-  styleUrl: './user-status.component.scss'
+  styleUrl: './user-status.component.scss',
 })
 export class UserStatusComponent {
-
-  @Input() status:boolean = true; 
-
+  @Input() status: boolean = false;
 }
