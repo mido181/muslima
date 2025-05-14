@@ -1,57 +1,15 @@
 <header
   style="background-color: var(--main-color)"
-  class="text-gray-100 h-[44px] flex justify-between items-center fixed z-1000000 w-[100%]"
+  class="text-gray-100 h-[44px] flex justify-between items-center fixed z-1000 w-[100%]"
 >
-  <h1 class="mr-5 text-[1.8rem] font-bold" style="color: var(--sec-color)">
+  <h1
+    class="mr-5 text-[1.2rem] sm:text-[1.4rem] md:text-[2rem] font-bold"
+    style="color: var(--sec-color)"
+  >
     <a routerLink="home"> Muslima </a>
   </h1>
   <nav>
-    <ul
-      class="px-2 hidden flex md:flex-row md:flex justify-center md:justify-between md:gap-15 lg:gap-30 items-center text-[18px]"
-    >
-      <li class="flex justify-between">
-        <a class="px-4" routerLink="online"> متصل الأن </a>
-        <span
-          matBadgePosition="before"
-          matBadge="1"
-          class="ml-3 text-[13px]"
-        ></span>
-      </li>
-      <li class="flex justify-between">
-        <a class="px-4" routerLink="matches">الشركاء</a>
-        <span
-          matBadgePosition="before"
-          matBadge="1"
-          class="ml-3 text-[13px]"
-        ></span>
-      </li>
-      <li class="flex justify-between">
-        <a class="px-4" routerLink="messages">الرسائل</a>
-        <span
-          matBadgePosition="before"
-          matBadge="1"
-          class="ml-3 text-[13px]"
-        ></span>
-      </li>
-      <li class="flex justify-between">
-        <a class="px-4" [matMenuTriggerFor]="appMenu">النشاط</a>
-        <span
-          matBadgePosition="before"
-          matBadge="1"
-          class="ml-3 text-[13px]"
-        ></span>
-        <section>
-          <mat-menu #appMenu="matMenu">
-            <ng-template matMenuContent>
-              @for(item of ['الأعجابات','المفضلات','قائمة الحظر','من شاهد الملف
-              الشخصي']; track $index){
-              <app-dropdown [item]="item" [notification]="0"></app-dropdown>
-              }
-            </ng-template>
-          </mat-menu>
-        </section>
-      </li>
-    </ul>
+    <app-header-nav></app-header-nav>
   </nav>
 
   <section>
@@ -68,7 +26,7 @@
             [matMenuTriggerFor]="profileMenu"
           >
             <img
-              class="block h-9 w-9 rounded-full border-white border-2"
+              class="block max-w-9 min-w-9 max-h-9 min-h-9 rounded-full border-white border-2"
               src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
               alt=""
             />
@@ -96,7 +54,6 @@
             </ng-template>
           </mat-menu>
         </li>
-        <li></li>
       </ul>
     </nav>
 

@@ -37,9 +37,8 @@ body {
   box-sizing: border-box;
   font-family: tejwal !important;
   direction: rtl !important;
-  font-size: 14px;
-  font-weight: 400;
-  height: 100%;
+  font-size: 14px !important;
+  font-weight: 300 !important;
   margin: 0;
 }
 
@@ -49,4 +48,9 @@ body {
 
 .mat-mdc-menu-content {
   background-color: white;
+}
+
+button,
+a {
+  cursor: pointer;
 }

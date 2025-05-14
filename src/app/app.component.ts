@@ -20,17 +20,12 @@ import { MatBadge } from '@angular/material/badge';
   standalone: true,
   selector: 'app-root',
   imports: [
-    MatIcon,
     RouterOutlet,
     HeaderComponent,
-    CardComponent,
     FooterComponent,
-    BorderCircleComponent,
-    SubHeaderComponent,
-    DropdownComponent,
     MatSidenavModule,
     RouterLink,
-    MatBadge
+    MatBadge,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

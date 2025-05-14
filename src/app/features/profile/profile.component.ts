@@ -4,14 +4,13 @@ import { UserStatusComponent } from '../../shared/user-status/user-status.compon
 import { OrderbyComponent } from '../../shared/orderby/orderby.component';
 import {
   ActivatedRoute,
-  ActivatedRouteSnapshot,
-  Router,
   RouterLink,
 } from '@angular/router';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-profile',
-  imports: [MatIcon, UserStatusComponent, OrderbyComponent, RouterLink],
+  imports: [MatIcon, MatTooltip,UserStatusComponent, OrderbyComponent, RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatIcon } from "@angular/material/icon";
 @Component({
   selector: 'app-border-circle',
-  imports: [MatIcon],
+  imports: [],
   templateUrl: './border-circle.component.html',
   styleUrl: './border-circle.component.scss'
 })

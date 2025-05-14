@@ -1,6 +1,6 @@
-<section class="overflow-hidden">
+<section>
   <mat-drawer-container [hasBackdrop]="true">
-    <mat-drawer position="end" class="" #drawer mode="over">
+    <mat-drawer position="end" #drawer mode="over">
       <section class="mr-5 flex flex-col gap-2">
         <h1 class="text-[23px] font-bold" style="color: var(--sec-color)">
           <a routerLink="home"> Muslima </a>
@@ -37,7 +37,7 @@
     </mat-drawer>
     <mat-drawer-content>
       <app-header (isOpen)="$event ? drawer.toggle() : null"></app-header>
-      <main class="mt-10">
+      <main class="mt-10 min-h-[80vh]">
         <router-outlet></router-outlet>
       </main>
       <app-footer></app-footer>
