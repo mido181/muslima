@@ -1,28 +1,28 @@
 <app-sub-header>
-  <div class="flex justify-start">
+  <div class="flex justify-start text-base">
     @for (item of fakeData; track $index) {
 
-    <button
-      class="flex justify-center pt-2 px-4 pb-2"
-      (click)="id($index)"
-      [ngClass]="{
-        'border-b-3': item.eng === fakeData[idn].eng,
-        'border-bg-white': item.eng === fakeData[idn].eng
-      }"
-    >
-      {{ item.name }}
+    <button>
+      <a
+        class="flex justify-center pt-2 px-4 pb-2"
+        [routerLink]="item.routerName"
+        [routerLinkActive]="['border-b-3', 'border-bg-white']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ item.name }}
+      </a>
     </button>
     }
   </div>
 </app-sub-header>
 <section class="grid grid-cols-12 gap-3 py-3">
   <app-message-navbar
-    class="lg:col-span-3 md:col-span-6 sm:col-span-6 col-span-12 flex justify-center md:justify-evenly md:items-start"
+    class="lg:col-span-3 md:col-span-6 col-span-12 min-h-[30rem] flex justify-center md:justify-evenly md:items-start"
   ></app-message-navbar>
 
-  <app-messages-contanier
-    class="hidden sm:block sm:col-span-6"
-  ></app-messages-contanier>
-
-  <app-ads class="col-span-12 lg:col-span-3"></app-ads>
+  <section class="hidden sm:block sm:col-span-6">
+    <app-messages-contanier></app-messages-contanier>
+  </section>
 </section>
+
+<app-ads class="col-span-12 lg:col-span-3"></app-ads>

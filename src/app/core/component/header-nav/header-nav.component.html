@@ -35,9 +35,8 @@ class="px-2 hidden flex md:flex justify-center md:justify-between md:gap-10 lg:g
   <section>
     <mat-menu #appMenu="matMenu">
       <ng-template matMenuContent>
-        @for(item of ['الأعجابات','المفضلات','قائمة الحظر','من شاهد الملف
-        الشخصي']; track $index){
-        <app-dropdown [item]="item" [notification]="0"></app-dropdown>
+        @for(item of  activitesList; track $index){
+        <app-dropdown [item]="item.name" [routerLink]="item.routerName" [notification]="0"></app-dropdown>
         }
       </ng-template>
     </mat-menu>

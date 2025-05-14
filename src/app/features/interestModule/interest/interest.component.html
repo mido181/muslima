@@ -1,0 +1,19 @@
+<app-sub-header>
+  <div class="flex justify-start">
+    @for (item of interestList; track $index) {
+    <button>
+      <a
+        class="flex justify-center pt-2 px-4 pb-2"
+        [routerLink]="item.routeName"
+        [routerLinkActive]="['border-b-3', 'border-bg-white']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ item.name }}
+      </a>
+    </button>
+    }
+  </div>
+</app-sub-header>
+<main class="mt-5 min-h-[78vh] mx-5 md:mx-10">
+  <router-outlet></router-outlet>
+</main>

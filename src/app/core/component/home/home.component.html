@@ -3,19 +3,21 @@
     class="my-10 md:flex mx-5 gap-4 flex-wrap items-center justify-between"
   >
     <div class="flex gap-5">
-      <img
-        class="h-20 w-20 block rounded-full"
-        src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
-        alt=""
-      />
+      <a [routerLink]="['profile', 1]">
+        <img
+          class="h-20 w-20 block rounded-full"
+          src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
+          alt=""
+        />
+      </a>
       <div class="flex flex-col gap-3">
-        <h5 class="text-white">مرحبا Mohamed</h5>
+        <h5 class="text-whitxe">مرحبا Mohamed</h5>
 
         <button
           class="hidden md:block rounded p-3 text-white max min-h-[3rem]"
           style="background-color: var(--main-color)"
         >
-          <a routerLink="">
+          <a [routerLink]="['profile', 1]">
             قم بتحميل صور متعددة الاغراض الي معرض الصور الخاص بك
           </a>
         </button>
@@ -23,7 +25,7 @@
           class="block md:hidden rounded p-3 text-white max min-h-[3rem]"
           style="background-color: var(--main-color)"
         >
-          <a routerLink=""> أذهب لمعرض الصور </a>
+          <a [routerLink]="['profile', 1]"> أذهب لمعرض الصور </a>
         </button>
       </div>
     </div>
