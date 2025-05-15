@@ -1,12 +1,10 @@
 <app-sub-header>
-  <div class="flex justify-start">
-    @for (item of interestList; track $index) {
+  <div class="flex px-0 justify-start">
+    @for (item of activitesLists[activity$]; track $index) {
     <button>
       <a
-        class="flex justify-center pt-2 px-4 pb-2"
+        class="flex justify-between pt-2 px-2 pb-2"
         [routerLink]="item.routeName"
-        [routerLinkActive]="['border-b-3', 'border-bg-white']"
-        [routerLinkActiveOptions]="{ exact: true }"
       >
         {{ item.name }}
       </a>

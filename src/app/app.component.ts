@@ -2,6 +2,8 @@ import { NgFor } from '@angular/common';
 import {
   AfterViewInit,
   Component,
+  inject,
+  OnInit,
   TemplateRef,
   ViewChild,
   viewChild,
@@ -16,6 +18,7 @@ import { SubHeaderComponent } from './core/sub-header/sub-header.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatBadge } from '@angular/material/badge';
+import { SelectedActivitiesService } from './services/selected-activities.service';
 @Component({
   standalone: true,
   selector: 'app-root',
@@ -30,6 +33,15 @@ import { MatBadge } from '@angular/material/badge';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'new app';
+  private activitiesServices = inject(SelectedActivitiesService)
+
+  ngOnInit(): void {}
+
+
+  changeActivties(name:'interest'|'favorite'){
+    this.activitiesServices.activitiesSelected$.next(name)
+  }
+
 }

@@ -10,6 +10,7 @@ import { CardContanierComponent } from '../../../shared/card-contanier/card-cont
 import { OrderbyComponent } from '../../../shared/orderby/orderby.component';
 import { AdsComponent } from '../../../shared/ads/ads.component';
 import { ProfileComponent } from '../../../features/profile/profile.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ import { ProfileComponent } from '../../../features/profile/profile.component';
     OrderbyComponent,
     AdsComponent,
     ProfileComponent,
+    RouterLink,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

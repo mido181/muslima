@@ -18,11 +18,11 @@
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink=""> ألاعجابات </a>
+          <a routerLink="/interest" (click)="changeActivties('interest')" > ألاعجابات </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink=""> المفضلات </a>
+          <a routerLink="/interest"  (click)="changeActivties('favorite')" > المفضلات </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
@@ -30,7 +30,11 @@
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink=""> النشاط </a>
+          <a routerLink=""> الضبط </a>
+          <span matBadgePosition="before" matBadge="1"></span>
+        </div>
+        <div class="px-2 flex justify-between">
+          <a routerLink=""> تسجيل الخروج </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
       </section>

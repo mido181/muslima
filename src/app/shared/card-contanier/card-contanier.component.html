@@ -1,7 +1,9 @@
 <section
-  class="transition duration-3 translate thick mt-2 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"
+  class="transition duration-3 translate thick mt-2 grid grid-cols-12 gap-3"
 >
   @for(i of cardQuntity(); track $index){
-  <app-card></app-card>
+  <app-card
+    class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-3 overflow-hidden bg-white shadow relative"
+  ></app-card>
   }
 </section>
