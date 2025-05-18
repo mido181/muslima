@@ -1,3 +1,5 @@
+<app-toaster></app-toaster>
+
 <app-sub-header>
   <section
     class="my-10 md:flex mx-5 gap-4 flex-wrap items-center justify-between"
@@ -30,9 +32,12 @@
       </div>
     </div>
     <div class="hidden md:flex gap-15 xl:mx-20">
-      @for (item of [1,2,3,4,5]; track $index) {
-      <app-border-circle>
-        <mat-icon
+      @for (item of icons; track $index) {
+        <ng-container 
+        >
+        <app-border-circle>
+          <mat-icon
+          [matTooltip]="item.tooltipName"
           icon
           style="
             opacity: 0.9;
@@ -40,17 +45,18 @@
             height: 45px;
             width: 45px;
             font-size: 45px;
-          "
+            "
         >
-          favorite
+          {{ item.name }}
         </mat-icon>
         <span
-          number
-          class="text-[0.8rem] text-gray-100 block absolute top-[30%]"
+        number
+        class="text-[0.8rem] text-gray-100 block absolute top-[30%]"
         >
-          2
-        </span>
-      </app-border-circle>
+        2
+      </span>
+    </app-border-circle>
+  </ng-container>
       }
     </div>
   </section>

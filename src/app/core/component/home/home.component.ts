@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -11,23 +11,34 @@ import { OrderbyComponent } from '../../../shared/orderby/orderby.component';
 import { AdsComponent } from '../../../shared/ads/ads.component';
 import { ProfileComponent } from '../../../features/profile/profile.component';
 import { RouterLink } from '@angular/router';
+import { ToasterComponent } from '../../../shared/toaster/toaster.component';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-home',
   imports: [
     MatIcon,
-    HeaderComponent,
-    CardComponent,
-    FooterComponent,
     BorderCircleComponent,
     SubHeaderComponent,
     CardContanierComponent,
     OrderbyComponent,
     AdsComponent,
-    ProfileComponent,
     RouterLink,
+    ToasterComponent,
+    MatTooltip,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  icons = [
+    
+   {name:'chat_bubble' ,tooltipName:'عدد الرسائل'}, 
+    
+   {name:'favorite' ,tooltipName:'المعجبين'},
+    
+   {name:'star' ,tooltipName:'المفضلين'},
+    
+   {name:'visibility ',tooltipName:'شاهد ملفي الشخصي'},
+  ];
+}

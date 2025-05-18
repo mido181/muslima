@@ -8,20 +8,56 @@ import { MessagesRoomComponent } from './features/messageComponent/messages-room
 import { LoginComponent } from './core/component/auth/login/login.component';
 import { RegisterComponent } from './core/component/auth/register/register.component';
 import { InterestComponent } from './features/interestModule/interest/interest.component';
+import { isLoginGuard } from './core/component/guard/is-login.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'online', component: OnlineComponent },
-  { path: 'messages-room/:id', component: MessagesRoomComponent },
-  { path: 'matches', component: MatchesComponent },
-  { path: 'profile/:id', component: ProfileComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'home',
+   canActivate:[isLoginGuard],
+    component: HomeComponent },
+  { path: 'online',
+    canActivate:[isLoginGuard],
+     component: OnlineComponent
+,   
+
+   },
+  { path: 'messages-room/:id',
+    canActivate:[isLoginGuard],
+     component: MessagesRoomComponent
+,   
+
+   },
+  { path: 'matches',
+    canActivate:[isLoginGuard],
+     component: MatchesComponent
+,   
+
+   },
+  { path: 'profile/:id',
+    canActivate:[isLoginGuard],
+     component: ProfileComponent
+,   
+
+   },
+  { path: 'login',
+
+     component: LoginComponent
+,   
+
+   },
+  { path: 'register',
+     component: RegisterComponent
+,   
+
+   },
   
-  { path: 'messages', loadChildren(){return import('./features/messageComponent/Message.routes').then(R=>R.MESSAGE_ROUTE)} },
+  { path: 'messages',
+    canActivate:[!isLoginGuard],
+    loadChildren(){return import('./features/messageComponent/Message.routes').then(R=>R.MESSAGE_ROUTE)} },
   
   { path: 'interest',
+    canActivate:[!isLoginGuard],
+
     async loadChildren() {
       const R = await import('./features/interestModule/interest.routes');
       return R.INTEREST_ROUTE;

@@ -1,3 +1,4 @@
+  <p-toast pposition="top-right"></p-toast>
 <section>
   <mat-drawer-container [hasBackdrop]="true">
     <mat-drawer position="end" #drawer mode="over">
@@ -6,35 +7,47 @@
           <a routerLink="home"> Muslima </a>
         </h1>
         <div class="px-2 flex justify-between">
-          <a routerLink="/online"> متصل الان </a>
+          <a (click)="closeDrawer()" routerLink="/online"> متصل الان </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink="/matches"> الشركاء </a>
+          <a (click)="closeDrawer()" routerLink="/matches"> الشركاء </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink="/messages"> الرسائل </a>
+          <a (click)="closeDrawer()" routerLink="/messages"> الرسائل </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink="/interest" (click)="changeActivties('interest')" > ألاعجابات </a>
+          <a
+            (click)="closeDrawer()"
+            routerLink="/interest"
+            (click)="changeActivties('interest')"
+          >
+            ألاعجابات
+          </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink="/interest"  (click)="changeActivties('favorite')" > المفضلات </a>
+          <a
+            (click)="closeDrawer()"
+            routerLink="/interest"
+            (click)="changeActivties('favorite')"
+          >
+            المفضلات
+          </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink=""> من شاهد ملفي الشخصي </a>
+          <a (click)="closeDrawer()" routerLink=""> من شاهد ملفي الشخصي </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink=""> الضبط </a>
+          <a (click)="closeDrawer()" routerLink=""> الضبط </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a routerLink=""> تسجيل الخروج </a>
+          <a (click)="closeDrawer()" routerLink=""> تسجيل الخروج </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
       </section>

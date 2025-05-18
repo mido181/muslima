@@ -1,3 +1,5 @@
+<app-toaster></app-toaster>
+
 <div>
   <a [routerLink]="['/profile/', 1]">
     <img
@@ -22,17 +24,28 @@
   </div>
   <div class="flex justify-between items-center">
     <div class="text-gray-500 flex gap-3 justify-center items-center text-big">
-      <div class="flex items-center">
-        <mat-icon class="text-big">favorite</mat-icon>
-      </div>
-
-      <div class="flex items-center">
-        <mat-icon class="text-big">chat_bubble</mat-icon>
-      </div>
+      <button
+        matTooltip="اضافة لقائمة المفضلة"
+        class="flex items-center"
+        (click)="successToaster('تم الأضافة لقائمة المفضلة', 'عملية ناجحة')"
+      >
+        <mat-icon class="text-big" style="color: rgb(202, 25, 25)"
+          >favorite</mat-icon
+        >
+      </button>
+      <a [routerLink]="['/messages']">
+        <button
+          class="flex items-center"
+          [matTooltip]="'ارسل رسالة إلى' + talkWith"
+        >
+          <mat-icon class="text-big">chat_bubble</mat-icon>
+        </button>
+      </a>
     </div>
-    <div class="text-gray-500 flex gap-2">
+
+    <button matTooltip="عدد الصور" class="text-gray-500 flex gap-2">
       <mat-icon class="text-big"> photo_camera </mat-icon>
       <span class="">3</span>
-    </div>
+    </button>
   </div>
 </div>
