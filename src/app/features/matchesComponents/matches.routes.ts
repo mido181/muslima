@@ -9,7 +9,10 @@ export const MATCHES_ROUTE: Routes = [
     component: MatchesComponent,
     children: [
       { path: '', component: MatchesFitComponent },
-      { path: 'fiteBoth', component: MatchesFitMeComponent },
+      { path: 'fiteBoth', component: MatchesFitMeComponent,
+data: { userType: ['patenuim','golden'] },
+
+       },
     ],
   },
 ];
