@@ -31,14 +31,14 @@ export class HeaderNavComponent implements OnInit {
     { name: 'الأعجابات', routerName: '/interest' },
     { name: 'المفضلات', routerName: '/favorite' },
     { name: 'قائمة الحظر', routerName: '/blockList' },
-    { name: 'من شاهد الملف الشخصي', routerName: '/profileWatches' },
+    { name: 'من شاهد الملف الشخصي', routerName: '/viewedProfile' },
   ];
 
   private activitiesServices = inject(SelectedActivitiesService);
 
   changeActivties(name: 'interest' | 'favorite') {
-   console.log('changeActivties', name);
-   
+    console.log('changeActivties', name);
+
     this.activitiesServices.activitiesSelected$.next(name);
   }
 

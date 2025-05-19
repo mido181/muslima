@@ -39,16 +39,23 @@
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between">
-          <a (click)="closeDrawer()" routerLink=""> من شاهد ملفي الشخصي </a>
+          <a (click)="closeDrawer()" routerLink="/viewedProfile">
+            من شاهد ملفي الشخصي
+          </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
+        <div class="px-2 flex justify-between">
+          <a (click)="closeDrawer()" routerLink="/pricePlans"> ترقية الحساب </a>
+          <span matBadgePosition="before" matBadge=""></span>
+        </div>
+
         <div class="px-2 flex justify-between">
           <a (click)="closeDrawer()" routerLink=""> الضبط الملف الشخصي</a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
         <div class="px-2 flex justify-between" (click)="logout()">
-          <a (click)="closeDrawer()" routerLink=""> تسجيل الخروج </a>
-          <span matBadgePosition="before" matBadge="1"></span>
+          <a (click)="closeDrawer()"> تسجيل الخروج </a>
+          <span matBadgePosition="before" matBadge="  "></span>
         </div>
       </section>
     </mat-drawer>

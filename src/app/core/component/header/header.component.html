@@ -15,6 +15,20 @@
   <section>
     <nav>
       <ul class="hidden md:flex ml-5 justify-between items-center gap-2">
+        <li class="">
+          <button
+          class="rounded bg-green-300 px-3 py-1 flex justify-center items-center"
+          >
+            <a class="block text-center" routerLink="/pricePlans">
+              قم بترقية الحساب
+            </a>
+
+            <mat-icon style="font-size: 16px; width: 16px; height: 16px"
+              >arrow_upward_alt
+            </mat-icon>
+          </button>
+        </li>
+
         <li>
           <a class="block text-center" routerLink="matches">
             <mat-icon>language </mat-icon>
@@ -22,9 +36,11 @@
         </li>
         <li>
           <a
+          routerLink="/editProfile"
             class="block rounded-full text-center"
             [matMenuTriggerFor]="profileMenu"
           >
+
             <img
               class="block max-w-9 min-w-9 max-h-9 min-h-9 rounded-full border-white border-2"
               src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"

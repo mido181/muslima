@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'payment',
+    path: 'pricePlans',
     // canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/payment/payment.component').then(
@@ -35,7 +35,7 @@ export const routes: Routes = [
     // canActivate: [isLoginGuard],
     loadComponent() {
       return import(
-'./features/messageComponents/messages-room/messages-room.component'
+        './features/messageComponents/messages-room/messages-room.component'
       ).then((c) => c.MessagesRoomComponent);
     },
   },
@@ -52,11 +52,21 @@ export const routes: Routes = [
     path: 'profile/:id',
     // canActivate: [isLoginGuard],
     loadComponent() {
-      return import('./features/profileComponents/profile/profile.component').then(
-        (c) => c.ProfileComponent
-      );
+      return import(
+        './features/profileComponents/profile/profile.component'
+      ).then((c) => c.ProfileComponent);
     },
   },
+    {
+    path: 'editProfile',
+    // canActivate: [isLoginGuard],
+
+    async loadComponent() {
+      const c = await import('./features/profileComponents/edit-profile/edit-profile.component');
+      return c.EditProfileComponent;
+    },
+  },
+
   {
     path: 'login',
     canActivate: [],
@@ -72,6 +82,22 @@ export const routes: Routes = [
     loadComponent() {
       return import('./core/component/auth/register/register.component').then(
         (c) => c.RegisterComponent
+      );
+    },
+  },
+  {
+    path: 'blockList',
+    loadComponent() {
+      return import('./features/blocked/blocked.component').then(
+        (c) => c.BlockedComponent
+      );
+    },
+  },
+    {
+    path: 'viewedProfile',
+    loadComponent() {
+      return import('./features/watch-profile/watch-profile.component').then(
+        (c) => c.WatchProfileComponent
       );
     },
   },
@@ -95,13 +121,14 @@ export const routes: Routes = [
     },
   },
 
-{
-  path: 'matches',
-  canActivate: [isLoginGuard],
-  async loadChildren() {
-    const R = await import('./features/matchesComponents/matches.routes');
-     return  R.MATCHES_ROUTE;
-},},
+  {
+    path: 'matches',
+    canActivate: [isLoginGuard],
+    async loadChildren() {
+      const R = await import('./features/matchesComponents/matches.routes');
+      return R.MATCHES_ROUTE;
+    },
+  },
 
   {
     path: 'favorite',
