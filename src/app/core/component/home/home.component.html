@@ -5,7 +5,7 @@
     class="my-10 md:flex mx-5 gap-4 flex-wrap items-center justify-between"
   >
     <div class="flex gap-5">
-      <a [routerLink]="['profile', 1]">
+      <a [routerLink]="['/profile', 1]">
         <img
           class="h-20 w-20 block rounded-full"
           src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
@@ -19,7 +19,7 @@
           class="hidden md:block rounded p-3 text-white max min-h-[3rem]"
           style="background-color: var(--main-color)"
         >
-          <a [routerLink]="['profile', 1]">
+          <a [routerLink]="['/profile', 1]">
             قم بتحميل صور متعددة الاغراض الي معرض الصور الخاص بك
           </a>
         </button>
@@ -27,36 +27,35 @@
           class="block md:hidden rounded p-3 text-white max min-h-[3rem]"
           style="background-color: var(--main-color)"
         >
-          <a [routerLink]="['profile', 1]"> أذهب لمعرض الصور </a>
+          <a [routerLink]="['/profile', 1]"> أذهب لمعرض الصور </a>
         </button>
       </div>
     </div>
     <div class="hidden md:flex gap-15 xl:mx-20">
       @for (item of icons; track $index) {
-        <ng-container 
-        >
+      <ng-container>
         <app-border-circle>
           <mat-icon
-          [matTooltip]="item.tooltipName"
-          icon
-          style="
-            opacity: 0.9;
-            color: #3f7580;
-            height: 45px;
-            width: 45px;
-            font-size: 45px;
+            [matTooltip]="item.tooltipName"
+            icon
+            style="
+              opacity: 0.9;
+              color: #3f7580;
+              height: 45px;
+              width: 45px;
+              font-size: 45px;
             "
-        >
-          {{ item.name }}
-        </mat-icon>
-        <span
-        number
-        class="text-[0.8rem] text-gray-100 block absolute top-[30%]"
-        >
-        2
-      </span>
-    </app-border-circle>
-  </ng-container>
+          >
+            {{ item.name }}
+          </mat-icon>
+          <span
+            number
+            class="text-[0.8rem] text-gray-100 block absolute top-[30%]"
+          >
+            2
+          </span>
+        </app-border-circle>
+      </ng-container>
       }
     </div>
   </section>
