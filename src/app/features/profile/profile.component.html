@@ -3,27 +3,28 @@
   <p value>170 / 4</p>
 </app-orderby>
 
-<main class="mx-20 md:mx-40 xl:mx-50">
+<main class="mx-10 md:mx-40 xl:mx-50">
   <section class="grid col-12 md:grid-cols-8">
     <div
       class="bg-gray-100 px-10 col-span-12 md:col-span-3 flex justify-center"
     >
       <img class="block" src="https://placehold.co/300x300.png" alt="" />
     </div>
+
     <div class="p-5 flex flex-col col-span-12 md:col-span-5">
       <div class="mb-5">
         <section class="personal-info flex justify-between">
           <div class="flex flex-col gap-1">
-            <div class="flex gap-4">
+            <div class="flex gap-4 items-center">
+              <span class="text-gray-400">
+                <mat-icon>person</mat-icon>
+              </span>
               <strong>Haticenurnaz</strong>
               <div>
                 <app-user-status></app-user-status>
-                <span class="text-gray-400">
-                  <mat-icon>person</mat-icon>
-                </span>
               </div>
             </div>
-            <div class="text-gray-500">
+            <div class="text-gray-500 flex flex-col gap-2">
               <p>35 • Amsterdam, Noord-Holland, هولندا</p>
               <p>أنثى / ارمل / ID: 30637686</p>
               <p>ابحث على ذكر 25 - 65 الذين يعيشون فى مجال 250</p>
@@ -49,13 +50,14 @@
             </div>
             <div class="flex gap-2 text-gray-500">
               <mat-icon matTooltip="أضافة اللي المفضلة">star</mat-icon>
-              <mat-icon matTooltip="الإبلغ عن إساءة" >priority_high</mat-icon>
+              <mat-icon matTooltip="الإبلغ عن إساءة">priority_high</mat-icon>
               <mat-icon matTooltip="حظر">block</mat-icon>
             </div>
           </div>
         </section>
       </div>
       <hr class="text-gray-300" />
+
       <div>
         <table class="w-[100%]">
           <thead>
@@ -92,7 +94,7 @@
     </div>
   </section>
   <!-- more info -->
-  <section class="mt-4">
+  <section class="p-5 mt-4">
     <h3 class="" style="color: var(--sec-color)">المزيد عني</h3>
     <div>
       <table class="w-[100%]">
