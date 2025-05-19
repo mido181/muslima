@@ -1,18 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { SubHeaderComponent } from '../../core/sub-header/sub-header.component';
-import { OrderbyComponent } from '../../shared/orderby/orderby.component';
-import { CardContanierComponent } from '../../shared/card-contanier/card-contanier.component';
-import { AdsComponent } from '../../shared/ads/ads.component';
 import {
   ActivatedRoute,
-  Router,
-  RouterEvent,
   RouterLink,
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { SubHeaderService } from '../../services/sub-header.service';
 import { MatIcon } from '@angular/material/icon';
+import { SubHeaderComponent } from '../../../shared/sub-header/sub-header.component';
+import { OrderbyComponent } from '../../../shared/orderby/orderby.component';
+import { SubHeaderService } from '../../../services/sub-header.service';
 
 @Component({
   selector: 'app-matches',

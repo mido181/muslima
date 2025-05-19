@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { UserStatusComponent } from '../../shared/user-status/user-status.component';
-import { OrderbyComponent } from '../../shared/orderby/orderby.component';
 import {
   ActivatedRoute,
   RouterLink,
 } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
-import { ToasterService } from '../../services/toaster.service';
+import { ToasterService } from '../../../services/toaster.service';
+import { OrderbyComponent } from '../../../shared/orderby/orderby.component';
+import { UserStatusComponent } from '../../../shared/user-status/user-status.component';
 
 @Component({
   selector: 'app-profile',

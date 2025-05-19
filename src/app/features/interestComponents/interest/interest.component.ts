@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SubHeaderComponent } from '../../../core/sub-header/sub-header.component';
 import { SelectedActivitiesService } from '../../../services/selected-activities.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { SubHeaderComponent } from '../../../shared/sub-header/sub-header.component';
 
 @Component({
   selector: 'app-interest',

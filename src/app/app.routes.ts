@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { isLoginGuard } from './core/component/guard/is-login.guard';
+import { isLoginGuard } from './core/guard/is-login.guard';
 
 export const routes: Routes = [
   {
@@ -25,16 +25,16 @@ export const routes: Routes = [
     canActivate: [isLoginGuard],
     loadComponent() {
       return import(
-        './features/messageComponent/messages-room/messages-room.component'
+'./features/messageComponents/messages-room/messages-room.component'
       ).then((c) => c.MessagesRoomComponent);
     },
   },
   {
     path: 'matches',
     canActivate: [isLoginGuard],
-    loadComponent() {
-      return import('./features/matches/matches.component').then(
-        (c) => c.MatchesComponent
+    loadChildren() {
+      return import('./features/matchesComponents/matches.routes').then(
+        (R) => R.MATCHES_ROUTE
       );
     },
   },
@@ -42,7 +42,7 @@ export const routes: Routes = [
     path: 'profile/:id',
     canActivate: [isLoginGuard],
     loadComponent() {
-      return import('./features/profile/profile.component').then(
+      return import('./features/profileComponents/profile/profile.component').then(
         (c) => c.ProfileComponent
       );
     },
@@ -59,8 +59,6 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    // canActivate: [!isLoginGuard],
-
     loadComponent() {
       return import('./core/component/auth/register/register.component').then(
         (c) => c.RegisterComponent
@@ -72,7 +70,7 @@ export const routes: Routes = [
     path: 'messages',
     canActivate: [isLoginGuard],
     loadChildren() {
-      return import('./features/messageComponent/Message.routes').then(
+      return import('./features/messageComponents/Message.routes').then(
         (R) => R.MESSAGE_ROUTE
       );
     },
@@ -82,7 +80,7 @@ export const routes: Routes = [
     path: 'interest',
     canActivate: [isLoginGuard],
     async loadChildren() {
-      const R = await import('./features/interestModule/interest.routes');
+      const R = await import('./features/interestComponents/interest.routes');
       return R.INTEREST_ROUTE;
     },
   },
@@ -91,7 +89,7 @@ export const routes: Routes = [
   path: 'matches',
   canActivate: [isLoginGuard],
   async loadChildren() {
-    const R = await import('./features/matchesModule/matches.routes');
+    const R = await import('./features/matchesComponents/matches.routes');
      return  R.MATCHES_ROUTE;
 },},
 
@@ -100,7 +98,7 @@ export const routes: Routes = [
     canActivate: [isLoginGuard],
 
     async loadChildren() {
-      const R = await import('./features/interestModule/interest.routes');
+      const R = await import('./features/interestComponents/interest.routes');
       return R.INTEREST_ROUTE;
     },
   },
