@@ -3,7 +3,7 @@
   <p value>170 / 4</p>
 </app-orderby>
 
-<main class="mx-10 md:mx-40 xl:mx-50">
+<main class="mx-10 xl:mx-30">
   <section class="grid col-12 md:grid-cols-8">
     <div
       class="bg-gray-100 px-10 col-span-12 md:col-span-3 flex justify-center"
@@ -14,10 +14,13 @@
         [numVisible]="5"
       >
         <ng-template #item let-item>
-          <img [src]="item" style="width: 100%" />
+          <img
+            [src]="item"
+            style="min-height: 300px; min-width: 300px; max-width: 100%"
+          />
         </ng-template>
         <ng-template #thumbnail let-item>
-          <img [src]="item" />
+          <img [src]="item" style="width: 100%" />
         </ng-template>
       </p-galleria>
     </div>

@@ -1,6 +1,6 @@
 ::ng-deep router-outlet + * {
-  animation: fade 0.5s ease 0.5s;
-  -webkit-animation: fade 0.5s ease 0.5s;
+  animation: fade 1s ease;
+  -webkit-animation: fade 1s ease;
 }
 
 @keyframes fade {
@@ -11,4 +11,3 @@
     opacity: 1;
   }
 }
-

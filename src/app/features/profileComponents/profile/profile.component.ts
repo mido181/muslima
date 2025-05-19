@@ -19,7 +19,6 @@ import { GalleriaModule } from 'primeng/galleria';
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
-
 })
 export class ProfileComponent implements OnInit {
   private router = inject(ActivatedRoute);
@@ -28,13 +27,17 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe((res) => console.log(res['id']));
-    this.images.set(['https://placehold.co/300x300.png', 'https://placehold.co/300x300.png', 'https://placehold.co/300x300.png', 'https://placehold.co/300x300.png']);
+    this.images.set([
+      'https://placehold.co/300x300.png',
+      'https://placehold.co/300x300.png',
+      'https://placehold.co/300x300.png',
+      'https://placehold.co/300x300.png',
+    ]);
   }
 
   successToaster(message: string) {
     this.toasterService.successToaster(message);
   }
-
 
   responsiveOptions: any[] = [
     {
@@ -43,7 +46,7 @@ export class ProfileComponent implements OnInit {
     },
     {
       breakpoint: '575px',
-      numVisible: 1,
+      numVisible: 2,
     },
   ];
 }

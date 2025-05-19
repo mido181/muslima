@@ -5,16 +5,15 @@
       <a
         class="flex justify-between pt-2 px-2 pb-2"
         [routerLink]="item.routeName"
-       [routerLinkActive]="['border-b-3', 'border-bg-white']" 
-       [routerLinkActiveOptions]="{ exact: true }"
-      
-        >
+        [routerLinkActive]="['border-b-3', 'border-bg-white']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         {{ item.name }}
       </a>
     </button>
     }
   </div>
 </app-sub-header>
-<main class="mt-5 min-h-[78vh] mx-5 md:mx-10">
+<main class="mt-5 mx-5 md:mx-10">
   <router-outlet></router-outlet>
 </main>
