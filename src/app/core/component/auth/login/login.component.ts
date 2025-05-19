@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginService } from '../../../../services/auth/login.service';
 import { Subject, Subscription, takeUntil, tap } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
+import { ToasterService } from '../../../../services/toaster.service';
 @Component({
   selector: 'app-login',
   imports: [
@@ -26,6 +27,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
+  private toaster = inject(ToasterService);
+ 
   private router = inject(Router);
   private loginService = inject(LoginService);
   private fb: FormBuilder = inject(FormBuilder);
@@ -44,6 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
         tap((res) => {
           this.router.navigate(['/home']);
+          this.toaster.successToaster('تم تسجيل الدخول بنجاح');
           this.loginService.currentUserStatus$.next(true);
         })
       )
