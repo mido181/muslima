@@ -10,6 +10,7 @@ import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 export class PaginationComponent {
   first: number = 0;
   rows: number = 10;
+pageLinkSize: number = 3;
 
   onPageChange(event: PaginatorState) {
     this.first = event.first ?? 0;

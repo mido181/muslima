@@ -12,17 +12,27 @@ export const routes: Routes = [
   },
   {
     path: 'online',
-    canActivate: [isLoginGuard],
-
+    // canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/online/online.component').then(
         (c) => c.OnlineComponent
       );
     },
   },
+
+  {
+    path: 'payment',
+    // canActivate: [isLoginGuard],
+    loadComponent() {
+      return import('./features/payment/payment.component').then(
+        (c) => c.PaymentComponent
+      );
+    },
+  },
+
   {
     path: 'messages-room/:id',
-    canActivate: [isLoginGuard],
+    // canActivate: [isLoginGuard],
     loadComponent() {
       return import(
 './features/messageComponents/messages-room/messages-room.component'
@@ -31,7 +41,7 @@ export const routes: Routes = [
   },
   {
     path: 'matches',
-    canActivate: [isLoginGuard],
+    // canActivate: [isLoginGuard],
     loadChildren() {
       return import('./features/matchesComponents/matches.routes').then(
         (R) => R.MATCHES_ROUTE
@@ -40,7 +50,7 @@ export const routes: Routes = [
   },
   {
     path: 'profile/:id',
-    canActivate: [isLoginGuard],
+    // canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/profileComponents/profile/profile.component').then(
         (c) => c.ProfileComponent
@@ -68,7 +78,7 @@ export const routes: Routes = [
 
   {
     path: 'messages',
-    canActivate: [isLoginGuard],
+    // canActivate: [isLoginGuard],
     loadChildren() {
       return import('./features/messageComponents/Message.routes').then(
         (R) => R.MESSAGE_ROUTE
@@ -78,7 +88,7 @@ export const routes: Routes = [
 
   {
     path: 'interest',
-    canActivate: [isLoginGuard],
+    // canActivate: [isLoginGuard],
     async loadChildren() {
       const R = await import('./features/interestComponents/interest.routes');
       return R.INTEREST_ROUTE;
@@ -95,7 +105,7 @@ export const routes: Routes = [
 
   {
     path: 'favorite',
-    canActivate: [isLoginGuard],
+    // canActivate: [isLoginGuard],
 
     async loadChildren() {
       const R = await import('./features/interestComponents/interest.routes');
