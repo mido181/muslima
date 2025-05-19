@@ -7,20 +7,16 @@ export const isLoginGuard: CanActivateFn = (route, state) => {
   const toaster = inject(ToasterService);
   const router = inject(Router);
   const login = inject(LoginService);
-  const isLogin = login.login('admin', 'admin',true).subscribe((res) =>{
 
-  if(res) {
-    toaster.successToaster('Login successful', 'Success');
-    router.navigateByUrl('/home');
-    
+  if (login.currentUserValue) {
+    // toaster.successToaster('Login successful', 'Success');
     return true;
-  } else {
-    toaster.rejectToaster('you have to login first', 'Error');
-    router.navigateByUrl('/login');
-    return false;
   }
-}
-)
+  const timer = setTimeout(() => {
+    router.navigate(['/login']);
+  }, 1000);
 
-return false;
+  toaster.rejectToaster('يجب تسجيل الدخول اولا', 'Error');
+
+  return false;
 };

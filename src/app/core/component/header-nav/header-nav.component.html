@@ -1,45 +1,56 @@
 <ul
-class="px-2 hidden flex md:flex justify-center md:justify-between md:gap-10 lg:gap-25 md:items-center md:text-[0.8rem] lg:text-[1rem]"
+  class="px-2 hidden flex md:flex justify-center md:justify-between md:gap-10 lg:gap-25 md:items-center md:text-[0.8rem] lg:text-[1rem]"
 >
-<li class="flex justify-between">
-  <a class="block px-4" routerLink="online"> متصل الأن </a>
-  <span
-    matBadgePosition="before"
-    matBadge="1"
-    class="ml-3 text-[13px]"
-  ></span>
-</li>
-<li class="flex justify-between">
-  <a class="px-4" routerLink="matches">الشركاء</a>
-  <span
-    matBadgePosition="before"
-    matBadge="1"
-    class="ml-3 text-[13px]"
-  ></span>
-</li>
-<li class="flex justify-between">
-  <a class="px-4" routerLink="messages">الرسائل</a>
-  <span
-    matBadgePosition="before"
-    matBadge="1"
-    class="ml-3 text-[13px]"
-  ></span>
-</li>
-<li class="flex justify-between">
-  <a class="px-4" [matMenuTriggerFor]="appMenu">النشاط</a>
-  <span
-    matBadgePosition="before"
-    matBadge="1"
-    class="ml-3 text-[13px]"
-  ></span>
-  <section>
-    <mat-menu #appMenu="matMenu">
-      <ng-template matMenuContent>
-        @for(item of  activitesList; track $index){
-        <app-dropdown [item]="item.name" [routerLink]="item.routerName" [notification]="0"></app-dropdown>
-        }
-      </ng-template>
-    </mat-menu>
-  </section>
-</li>
+  <li class="flex justify-between">
+    <a class="block px-4" routerLink="online"> متصل الأن </a>
+    <span
+      matBadgePosition="before"
+      matBadge="1"
+      class="ml-3 text-[13px]"
+    ></span>
+  </li>
+  <li class="flex justify-between">
+    <a class="px-4" routerLink="matches">الشركاء</a>
+    <span
+      matBadgePosition="before"
+      matBadge="1"
+      class="ml-3 text-[13px]"
+    ></span>
+  </li>
+  <li class="flex justify-between">
+    <a class="px-4" routerLink="messages">الرسائل</a>
+    <span
+      matBadgePosition="before"
+      matBadge="1"
+      class="ml-3 text-[13px]"
+    ></span>
+  </li>
+  <li class="flex justify-between">
+    <a class="px-4" [matMenuTriggerFor]="appMenu">النشاط</a>
+    <span
+      matBadgePosition="before"
+      matBadge="1"
+      class="ml-3 text-[13px]"
+    ></span>
+    <section>
+      <mat-menu #appMenu="matMenu">
+        <ng-template matMenuContent>
+          @for(item of activitesList; track $index){
+          <app-dropdown
+            [item]="item.name"
+            [routerLink]="item.routerName"
+            [notification]="0"
+            (click)="
+              item.routerName === '/interest'
+                ? changeActivties('interest')
+                : item.routerName === '/favorite' 
+                ? changeActivties('favorite')
+                :  null
+            "
+          ></app-dropdown>
+          }
+        </ng-template>
+      </mat-menu>
+    </section>
+  </li>
 </ul>

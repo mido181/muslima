@@ -1,9 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SelectedActivitiesService } from '../../../services/selected-activities.service';
+import { CardContanierComponent } from "../../../shared/card-contanier/card-contanier.component";
 
 @Component({
   selector: 'app-my-interest',
-  imports: [],
+  imports: [CardContanierComponent],
   templateUrl: './my-interest.component.html',
   styleUrl: './my-interest.component.scss',
 })

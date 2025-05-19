@@ -5,7 +5,10 @@
       <a
         class="flex justify-between pt-2 px-2 pb-2"
         [routerLink]="item.routeName"
-      >
+       [routerLinkActive]="['border-b-3', 'border-bg-white']" 
+       [routerLinkActiveOptions]="{ exact: true }"
+      
+        >
         {{ item.name }}
       </a>
     </button>

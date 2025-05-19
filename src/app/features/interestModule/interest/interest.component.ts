@@ -7,7 +7,7 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-interest',
-  imports: [RouterOutlet, SubHeaderComponent, RouterLink, AsyncPipe],
+  imports: [RouterOutlet, SubHeaderComponent, RouterLink, RouterLinkActive],
   templateUrl: './interest.component.html',
   styleUrl: './interest.component.scss',
 })

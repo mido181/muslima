@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DropdownComponent } from '../../../shared/dropdown/dropdown.component';
 import { RouterLink } from '@angular/router';
 import { SubHeaderService } from '../../../services/sub-header.service';
+import { SelectedActivitiesService } from '../../../services/selected-activities.service';
 
 @Component({
   selector: 'app-header-nav',
@@ -28,11 +29,18 @@ export class HeaderNavComponent implements OnInit {
   activites = [];
   activitesList = [
     { name: 'الأعجابات', routerName: '/interest' },
-    { name: 'المفضلات', routerName: '/favorites' },
+    { name: 'المفضلات', routerName: '/favorite' },
     { name: 'قائمة الحظر', routerName: '/blockList' },
     { name: 'من شاهد الملف الشخصي', routerName: '/profileWatches' },
   ];
 
+  private activitiesServices = inject(SelectedActivitiesService);
+
+  changeActivties(name: 'interest' | 'favorite') {
+   console.log('changeActivties', name);
+   
+    this.activitiesServices.activitiesSelected$.next(name);
+  }
 
   items = [
     'تعديل الملف الشخصي',

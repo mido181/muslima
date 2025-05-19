@@ -10,8 +10,8 @@ export const INTEREST_ROUTE: Routes = [
     component: InterestComponent,
     children: [
       { path: '', component: InterestMeComponent },
-      { path: 'interesting', component: MyInterestComponent },
       { path: 'Mutualinterest', component: MutualInterestComponent },
+      { path: 'interesting', component: MyInterestComponent },
     ],
   },
 ];

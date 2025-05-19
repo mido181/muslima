@@ -1,62 +1,103 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './core/component/home/home.component';
-import { OnlineComponent } from './features/online/online.component';
-import { MatchesComponent } from './features/matches/matches.component';
-import { ProfileComponent } from './features/profile/profile.component';
-import { MessageComponent } from './features/messageComponent/message.component';
-import { MessagesRoomComponent } from './features/messageComponent/messages-room/messages-room.component';
-import { LoginComponent } from './core/component/auth/login/login.component';
-import { RegisterComponent } from './core/component/auth/register/register.component';
-import { InterestComponent } from './features/interestModule/interest/interest.component';
 import { isLoginGuard } from './core/component/guard/is-login.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home',
-   canActivate:[isLoginGuard],
-    component: HomeComponent },
-  { path: 'online',
-    canActivate:[isLoginGuard],
-     component: OnlineComponent
-,   
+  {
+    path: 'home',
+    loadComponent() {
+      return import('./core/component/home/home.component').then(
+        (c) => c.HomeComponent
+      );
+    },
+  },
+  {
+    path: 'online',
+    canActivate: [isLoginGuard],
 
-   },
-  { path: 'messages-room/:id',
-    canActivate:[isLoginGuard],
-     component: MessagesRoomComponent
-,   
+    loadComponent() {
+      return import('./features/online/online.component').then(
+        (c) => c.OnlineComponent
+      );
+    },
+  },
+  {
+    path: 'messages-room/:id',
+    canActivate: [isLoginGuard],
+    loadComponent() {
+      return import(
+        './features/messageComponent/messages-room/messages-room.component'
+      ).then((c) => c.MessagesRoomComponent);
+    },
+  },
+  {
+    path: 'matches',
+    canActivate: [isLoginGuard],
+    loadComponent() {
+      return import('./features/matches/matches.component').then(
+        (c) => c.MatchesComponent
+      );
+    },
+  },
+  {
+    path: 'profile/:id',
+    canActivate: [isLoginGuard],
+    loadComponent() {
+      return import('./features/profile/profile.component').then(
+        (c) => c.ProfileComponent
+      );
+    },
+  },
+  {
+    path: 'login',
+    canActivate: [],
 
-   },
-  { path: 'matches',
-    canActivate:[isLoginGuard],
-     component: MatchesComponent
-,   
+    loadComponent() {
+      return import('./core/component/auth/login/login.component').then(
+        (c) => c.LoginComponent
+      );
+    },
+  },
+  {
+    path: 'register',
+    // canActivate: [!isLoginGuard],
 
-   },
-  { path: 'profile/:id',
-    canActivate:[isLoginGuard],
-     component: ProfileComponent
-,   
+    loadComponent() {
+      return import('./core/component/auth/register/register.component').then(
+        (c) => c.RegisterComponent
+      );
+    },
+  },
 
-   },
-  { path: 'login',
+  {
+    path: 'messages',
+    canActivate: [isLoginGuard],
+    loadChildren() {
+      return import('./features/messageComponent/Message.routes').then(
+        (R) => R.MESSAGE_ROUTE
+      );
+    },
+  },
 
-     component: LoginComponent
-,   
+  {
+    path: 'interest',
+    canActivate: [isLoginGuard],
+    async loadChildren() {
+      const R = await import('./features/interestModule/interest.routes');
+      return R.INTEREST_ROUTE;
+    },
+  },
 
-   },
-  { path: 'register',
-     component: RegisterComponent
-,   
+{
+  path: 'matches',
+  canActivate: [isLoginGuard],
+  async loadChildren() {
+    const R = await import('./features/matchesModule/matches.routes');
+     return  R.MATCHES_ROUTE;
+},},
 
-   },
-  
-  { path: 'messages',
-    canActivate:[!isLoginGuard],
-    loadChildren(){return import('./features/messageComponent/Message.routes').then(R=>R.MESSAGE_ROUTE)} },
-  
-  { path: 'interest',
-    canActivate:[!isLoginGuard],
+  {
+    path: 'favorite',
+    canActivate: [isLoginGuard],
 
     async loadChildren() {
       const R = await import('./features/interestModule/interest.routes');
@@ -64,5 +105,6 @@ export const routes: Routes = [
     },
   },
 
-  { path: '**', redirectTo: '/home' }, // Wildcard for 404
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' },
 ];

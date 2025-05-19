@@ -1,15 +1,17 @@
 <app-sub-header>
   <div class="flex justify-start">
-    @for (item of ['الاعضاء المناسبون','الاعضاء اللائقين المتبادلة']; track
-    $index) {
+    @for (item of matchesList; track $index) {
 
     <button class="flex justify-between py-2 px-2">
-      <a routerLink="">
-        {{ item }}
+      <a
+        [routerLink]="item.routeName"
+        [routerLinkActive]="['border-b-3', 'border-bg-white']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ item.name }}
       </a>
-      <!-- [routerLinkActive]="['border-b-3', 'border-bg-white']" -->
 
-      <mat-icon>locked</mat-icon>
+      <mat-icon>{{ item.iconName }}</mat-icon>
     </button>
     }
   </div>
@@ -27,8 +29,5 @@
       </select>
     </div>
   </app-orderby>
-
-  <app-card-contanier></app-card-contanier>
-  <app-ads></app-ads>
-  <app-card-contanier></app-card-contanier>
+  <router-outlet></router-outlet>
 </main>
