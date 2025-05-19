@@ -8,7 +8,18 @@
     <div
       class="bg-gray-100 px-10 col-span-12 md:col-span-3 flex justify-center"
     >
-      <img class="block" src="https://placehold.co/300x300.png" alt="" />
+      <p-galleria
+        [value]="images()"
+        [responsiveOptions]="responsiveOptions"
+        [numVisible]="5"
+      >
+        <ng-template #item let-item>
+          <img [src]="item" style="width: 100%" />
+        </ng-template>
+        <ng-template #thumbnail let-item>
+          <img [src]="item" />
+        </ng-template>
+      </p-galleria>
     </div>
 
     <div class="p-5 flex flex-col col-span-12 md:col-span-5">
@@ -34,7 +45,7 @@
           <div class="flex flex-col justify-between py-1">
             <div class="flex gap-4">
               <button
-              (click)="successToaster('تم ألأعجاب')"
+                (click)="successToaster('تم ألأعجاب')"
                 matTooltip="أرسال الاعجاب"
                 class="text-white h-11 w-11 bg-gray-600 rounded-full flex justify-center items-center"
               >
@@ -50,9 +61,11 @@
               </a>
             </div>
             <div class="flex gap-2 text-gray-500">
-              <mat-icon 
-              (click)="successToaster('تم ألأضافة اللي قائمة المفضلة')"
-              matTooltip="أضافة اللي المفضلة">star</mat-icon>
+              <mat-icon
+                (click)="successToaster('تم ألأضافة اللي قائمة المفضلة')"
+                matTooltip="أضافة اللي المفضلة"
+                >star</mat-icon
+              >
               <mat-icon matTooltip="الإبلغ عن إساءة">priority_high</mat-icon>
               <mat-icon matTooltip="حظر">block</mat-icon>
             </div>

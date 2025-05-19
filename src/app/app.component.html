@@ -46,8 +46,7 @@
           <a (click)="closeDrawer()" routerLink=""> الضبط الملف الشخصي</a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
-        <div class="px-2 flex justify-between " 
-        (click)="logout()">
+        <div class="px-2 flex justify-between" (click)="logout()">
           <a (click)="closeDrawer()" routerLink=""> تسجيل الخروج </a>
           <span matBadgePosition="before" matBadge="1"></span>
         </div>
@@ -55,7 +54,7 @@
     </mat-drawer>
     <mat-drawer-content>
       <app-header (isOpen)="$event ? drawer.toggle() : null"></app-header>
-      <main class="mt-10 min-h-[78vh]">
+      <main class="mt-10 min-h-screen">
         <router-outlet></router-outlet>
       </main>
       <app-footer></app-footer>
