@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginService } from '../../../../services/auth/login.service';
 import { Subject, Subscription, takeUntil, tap } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   imports: [
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+  RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
