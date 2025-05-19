@@ -34,6 +34,7 @@
           <div class="flex flex-col justify-between py-1">
             <div class="flex gap-4">
               <button
+              (click)="successToaster('تم ألأعجاب')"
                 matTooltip="أرسال الاعجاب"
                 class="text-white h-11 w-11 bg-gray-600 rounded-full flex justify-center items-center"
               >
@@ -49,7 +50,9 @@
               </a>
             </div>
             <div class="flex gap-2 text-gray-500">
-              <mat-icon matTooltip="أضافة اللي المفضلة">star</mat-icon>
+              <mat-icon 
+              (click)="successToaster('تم ألأضافة اللي قائمة المفضلة')"
+              matTooltip="أضافة اللي المفضلة">star</mat-icon>
               <mat-icon matTooltip="الإبلغ عن إساءة">priority_high</mat-icon>
               <mat-icon matTooltip="حظر">block</mat-icon>
             </div>

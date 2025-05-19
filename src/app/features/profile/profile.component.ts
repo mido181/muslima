@@ -7,6 +7,7 @@ import {
   RouterLink,
 } from '@angular/router';
 import { MatTooltip } from '@angular/material/tooltip';
+import { ToasterService } from '../../services/toaster.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +17,14 @@ import { MatTooltip } from '@angular/material/tooltip';
 })
 export class ProfileComponent implements OnInit {
   private router = inject(ActivatedRoute);
+  private toasterService = inject(ToasterService);
 
   ngOnInit() {
     this.router.params.subscribe((res) => console.log(res['id']));
   }
+
+successToaster(message: string) {  
+  this.toasterService.successToaster(message);
+}
+
 }

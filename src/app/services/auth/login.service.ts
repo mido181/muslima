@@ -25,5 +25,9 @@ export class LoginService {
     })
   }
 
-  logout() {}
+  logout() {
+   this.currentUserStatus$.next(false);
+
+
+  }
 }

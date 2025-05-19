@@ -21,6 +21,8 @@ import { MatBadge } from '@angular/material/badge';
 import { SelectedActivitiesService } from './services/selected-activities.service';
 import { ToasterComponent } from './shared/toaster/toaster.component';
 import { Toast } from 'primeng/toast';
+import { LoginService } from './services/auth/login.service';
+import { ToasterService } from './services/toaster.service';
 @Component({
   standalone: true,
   selector: 'app-root',
@@ -31,8 +33,7 @@ import { Toast } from 'primeng/toast';
     MatSidenavModule,
     RouterLink,
     MatBadge,
-   Toast,
-   
+    Toast,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -40,6 +41,8 @@ import { Toast } from 'primeng/toast';
 export class AppComponent implements OnInit {
   title = 'new app';
   private activitiesServices = inject(SelectedActivitiesService);
+  private loginSerivce = inject(LoginService);
+  private toasterService = inject(ToasterService);
 
   ngOnInit(): void {}
 
@@ -52,5 +55,10 @@ export class AppComponent implements OnInit {
 
   closeDrawer() {
     this.drawer.close();
+  }
+
+  logout() {
+    this.loginSerivce.logout();
+    this.toasterService.successToaster('تم تسجيل الخروج بنجاح');
   }
 }
