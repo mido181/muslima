@@ -9,6 +9,8 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,8 @@ import { RouterLink } from '@angular/router';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterLink
+    RouterLink,
+    MatRadioModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
@@ -27,8 +30,12 @@ export class RegisterComponent implements OnInit {
   loginForm!: FormGroup;
   ngOnInit() {
     this.loginForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required],
+      rePassword: ['', Validators.required],
+
     });
   }
 }

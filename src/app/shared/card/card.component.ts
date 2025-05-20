@@ -3,7 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { UserStatusComponent } from '../user-status/user-status.component';
 import { RouterLink } from '@angular/router';
 import { ToasterService } from '../../services/toaster.service';
-import { ToasterComponent } from '../toaster/toaster.component';
+import { Tag } from 'primeng/tag';
 import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
@@ -12,8 +12,8 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatIcon,
     UserStatusComponent,
     RouterLink,
-    ToasterComponent,
     MatTooltip,
+    Tag,
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',

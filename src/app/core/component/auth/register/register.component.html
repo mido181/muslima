@@ -4,6 +4,25 @@
     <p>تعرف علي اصدقاء جدد وكون رابطة علاقات قوية</p>
     <form [formGroup]="loginForm">
       <mat-form-field class="w-[100%]">
+        <mat-label for="">الاسم الأول </mat-label>
+        <input
+          type="text"
+          formControlName="firstName"
+          name="firstName"
+          matInput
+        />
+      </mat-form-field>
+      <mat-form-field class="w-[100%]">
+        <mat-label for="">الاسم الأخير</mat-label>
+        <input
+          type="text"
+          formControlName="lastName"
+          name="lastName"
+          matInput
+        />
+      </mat-form-field>
+
+      <mat-form-field class="w-[100%]">
         <mat-label for="">الأيميل</mat-label>
         <input
           matInput
@@ -19,7 +38,7 @@
         }
       </mat-form-field>
       <mat-form-field class="w-[100%]">
-        <mat-label for="">الباسورد</mat-label>
+        <mat-label for="">كلمة السر</mat-label>
         <input
           type="password"
           formControlName="password"
@@ -27,33 +46,22 @@
           matInput
         />
       </mat-form-field>
+
       <mat-form-field class="w-[100%]">
-        <mat-label for="">الباسورد</mat-label>
+        <mat-label for="">إعادة كتابة كلمة السر</mat-label>
         <input
           type="password"
-          formControlName="password"
-          name="password"
+          formControlName="rePassword"
+          name="rePassword"
           matInput
         />
       </mat-form-field>
-      <mat-form-field class="w-[100%]">
-        <mat-label for="">الباسورد</mat-label>
-        <input
-          type="password"
-          formControlName="password"
-          name="password"
-          matInput
-        />
-      </mat-form-field>
-      <mat-form-field class="w-[100%]">
-        <mat-label for="">الباسورد</mat-label>
-        <input
-          type="password"
-          formControlName="password"
-          name="password"
-          matInput
-        />
-      </mat-form-field>
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-label for="">النوع</mat-label>
+        <mat-radio-button value="male">ذكر</mat-radio-button>
+        <mat-radio-button value="female">أنثي</mat-radio-button>
+      </mat-radio-group>
 
       <div class="flex flex-col gap-2 justify-center">
         <button
@@ -72,8 +80,7 @@
         >
           سجل
         </button>
-          <a routerLink="/login"> هل لديك حساب بالفعل ؟</a>
-
+        <a routerLink="/login"> هل لديك حساب بالفعل ؟</a>
       </div>
     </form>
   </div>
