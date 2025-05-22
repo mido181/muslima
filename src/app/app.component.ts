@@ -9,17 +9,11 @@ import {
   viewChild,
 } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatIcon } from '@angular/material/icon';
 import { HeaderComponent } from './core/component/header/header.component';
-import { CardComponent } from './shared/card/card.component';
 import { FooterComponent } from './core/component/footer/footer.component';
-import { BorderCircleComponent } from './shared/border-circle/border-circle.component';
-import { SubHeaderComponent } from './shared/sub-header/sub-header.component';
-import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatBadge } from '@angular/material/badge';
 import { SelectedActivitiesService } from './services/selected-activities.service';
-import { ToasterComponent } from './shared/toaster/toaster.component';
 import { Toast } from 'primeng/toast';
 import { LoginService } from './services/auth/login.service';
 import { ToasterService } from './services/toaster.service';

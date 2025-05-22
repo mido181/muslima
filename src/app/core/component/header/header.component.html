@@ -17,7 +17,7 @@
       <ul class="hidden md:flex ml-5 justify-between items-center gap-2">
         <li class="">
           <button
-          class="rounded bg-green-300 px-3 py-1 flex justify-center items-center"
+            class="rounded bg-green-300 px-3 py-1 flex justify-center items-center"
           >
             <a class="block text-center" routerLink="/pricePlans">
               قم بترقية الحساب
@@ -35,23 +35,24 @@
           </a>
         </li>
         <li>
-          <a
-          routerLink="/editProfile"
+          <button
             class="block rounded-full text-center"
             [matMenuTriggerFor]="profileMenu"
           >
-
             <img
               class="block max-w-9 min-w-9 max-h-9 min-h-9 rounded-full border-white border-2"
               src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
               alt=""
             />
-          </a>
+          </button>
           <mat-menu #profileMenu="matMenu">
             <ng-template matMenuContent>
               @for(item of items ; track $index){
 
-              <app-dropdown [item]="item" [notification]="''"></app-dropdown>
+              <app-dropdown
+                [item]="item.name"
+                [notification]="''"
+              ></app-dropdown>
               }
             </ng-template>
           </mat-menu>
@@ -65,7 +66,12 @@
             <ng-template matMenuContent>
               @for(item of items ; track $index){
 
-              <app-dropdown [item]="item" [notification]="''"></app-dropdown>
+              <app-dropdown
+                [item]="item.name"
+                [routeName]="item.routeName!"
+
+                [notification]="''"
+              ></app-dropdown>
               }
             </ng-template>
           </mat-menu>

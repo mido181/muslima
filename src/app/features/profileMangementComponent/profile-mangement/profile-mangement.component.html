@@ -1,0 +1,21 @@
+<app-sub-header>
+  <div class="flex justify-start">
+    @for (item of profileMangment; track $index) {
+
+    <button class="flex justify-between py-2 px-2">
+      <a
+        [routerLink]="item.routeName"
+        [routerLinkActive]="['border-b-3', 'border-bg-white']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ item.name }}
+      </a>
+
+      <mat-icon>{{ item.iconName }}</mat-icon>
+    </button>
+    }
+  </div>
+</app-sub-header>
+<div class="my-5 mx-10">
+  <router-outlet></router-outlet>
+</div>

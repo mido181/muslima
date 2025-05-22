@@ -2,7 +2,7 @@
   class="flex flex-row-reverse justify-between hover:transition-[bg] w-[200px] ease-in duration-300 p-3 hover:bg-gray-200"
   mat-menu-item
 >
-  <a routerLink="/editProfile"> {{ item }} </a>
+  <a [routerLink]="[routeName]"> {{ item }} </a>
   <div [matBadge]="notification" class="ml-3"></div>
 </button>
 <!-- <button

@@ -31,15 +31,6 @@ export const routes: Routes = [
   },
 
   {
-    path: 'messages-room/:id',
-    // canActivate: [isLoginGuard],
-    loadComponent() {
-      return import(
-        './features/messageComponents/messages-room/messages-room.component'
-      ).then((c) => c.MessagesRoomComponent);
-    },
-  },
-  {
     path: 'matches',
     // canActivate: [isLoginGuard],
     loadChildren() {
@@ -58,13 +49,9 @@ export const routes: Routes = [
     },
   },
     {
-    path: 'editProfile',
+    path: 'profile-mangement',
+    loadChildren:() => import('./features/profileMangementComponent/profileMangement.routes').then(c=>c.profileManagementRoutes),
     // canActivate: [isLoginGuard],
-
-    async loadComponent() {
-      const c = await import('./features/profileComponents/edit-profile/edit-profile.component');
-      return c.EditProfileComponent;
-    },
   },
 
   {
@@ -111,7 +98,6 @@ export const routes: Routes = [
       );
     },
   },
-
   {
     path: 'interest',
     // canActivate: [isLoginGuard],

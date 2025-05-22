@@ -12,5 +12,7 @@ export class DropdownComponent {
 
   @Input() item:string ='';
   @Input() notification:string|number = '';
+  @Input() routeName:string = '';
+
 
 }

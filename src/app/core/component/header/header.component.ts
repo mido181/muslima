@@ -24,13 +24,11 @@ export class HeaderComponent {
   @Output() isOpen: EventEmitter<boolean> = new EventEmitter();
   open: boolean = false;
   items = [
-    'تعديل الملف الشخصي',
-    'المفضلات',
-    'تعديل الملف الشخصي',
-    'قائمة الحظر',
-    'تعديل الملف الشخصي',
-    'من شاهد الملف الشخصي',
-  ];
+    { name: 'تعديل الملف الشخصي', routeName: '/profile-mangement'},
+    { name: 'ترقية الحساب', routeName: '/pricePlan'},
+    { name: 'تسحيل الخروج' },
+    { name: 'حذف حسابي' },
+      ];
 
   sideBar() {
     this.open = !this.open;
