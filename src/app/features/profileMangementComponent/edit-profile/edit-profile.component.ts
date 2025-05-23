@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild, viewChild } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -29,7 +29,7 @@ import { last } from 'rxjs';
 export class EditProfileComponent {
   editForm!: FormGroup;
   private fb = inject(FormBuilder);
-
+  
   ngOnInit() {
     this.editForm = this.fb.group({
       firstname: ['mohamed'],
@@ -46,7 +46,5 @@ export class EditProfileComponent {
   edit() {
     console.log(this.editForm.value);
   }
-onFileSelected(e: any) {
-    // console.log(e.target.files[0]);
-  }
+
 }
