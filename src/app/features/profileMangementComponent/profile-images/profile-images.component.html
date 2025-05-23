@@ -1,35 +1,36 @@
-<h1 class="text-xl">رفع الصور للملف الشخصي</h1>
-<p class="my-4">قم برفع المزيد من الصور حتي تكون أكثر مصداقية</p>
-<div class="w-[100%] flex flex-wrap gap-3">
-  @for (item of [1,2,3,4,5]; track $index) {
+<section class="flex flex-col sm:justify-start items-center sm:items-start justify-center">
+  <h1 class="text-xl">رفع الصور للملف الشخصي</h1>
+  <p class="my-4">قم برفع المزيد من الصور حتي تكون أكثر مصداقية</p>
+  <div class="w-[100%] justify-center sm:justify-start flex flex-wrap gap-3">
+    @for (item of [1,2,3,4,5]; track $index) {
 
-  <div class="relative h-52 w-52">
-    <img
-      [src]="imgSrc"
-      alt=""
-      class="block w-[100%] h-[100%] rounded object-cover"
-      [id]="'img' + $index"
-      #img
-    />
-    <input
-      [id]="'img' + $index"
-      type="file"
-      hidden
-      #input
-      accept="image/*"
-      class="absolute top-0 opacity-0 hover:z-100 z-90 block h-[100%] w-[100%]"
-      (change)="onFileSelected($event)"
-    />
-    <span
-      class="text-center absolute hover:opacity-[0.8] opacity-0 pt-20 top-0 h-[100%] w-[100%] transition duration-300 z-100 block cursor-pointer"
-      (click)="input.click()"
-    >
-      قم بتحميل صورة
-    </span>
+    <div class="relative h-52 w-52">
+      <img
+        [src]="imgSrc"
+        alt=""
+        class="block w-[100%] h-[100%] rounded object-cover"
+        [id]="'img' + $index"
+        #img
+      />
+      <input
+        [id]="'img' + $index"
+        type="file"
+        hidden
+        #input
+        accept="image/*"
+        class="absolute top-0 opacity-0 hover:z-100 z-90 block h-[100%] w-[100%]"
+        (change)="onFileSelected($event)"
+      />
+      <span
+        class="text-center absolute hover:opacity-[0.8] opacity-0 pt-20 top-0 h-[100%] w-[100%] transition duration-300 z-100 block cursor-pointer"
+        (click)="input.click()"
+      >
+        قم بتحميل صورة
+      </span>
+    </div>
+    }
   </div>
-  }
-</div>
-
+</section>
 <!-- 
 <div class="col-12 mt2">
         
