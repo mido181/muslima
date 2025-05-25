@@ -1,301 +1,53 @@
-<section class="flex flex-col sm:justify-start items-center sm:items-start justify-center">
-  <h1 class="text-xl">رفع الصور للملف الشخصي</h1>
-  <p class="my-4">قم برفع المزيد من الصور حتي تكون أكثر مصداقية</p>
-  <div class="w-[100%] justify-center sm:justify-start flex flex-wrap gap-3">
-    @for (item of [1,2,3,4,5]; track $index) {
+<main class="grid grid-cols-12 gap-4 mt-4">
+  <section
+    class="col-span-12 md:col-span-8 flex flex-col sm:justify-start items-center sm:items-start justify-center"
+  >
+    <h1 class="text-xl">رفع الصور للملف الشخصي</h1>
+    <p class="my-4">قم برفع المزيد من الصور حتي تكون أكثر مصداقية</p>
+    <div class="w-[100%] justify-center sm:justify-start flex flex-wrap gap-3">
+      @for (item of [1,2,3,4,5]; track $index) {
 
-    <div class="relative h-52 w-52">
-      <img
-        [src]="imgSrc"
-        alt=""
-        class="block w-[100%] h-[100%] rounded object-cover"
-        [id]="'img' + $index"
-        #img
-      />
-      <input
-        [id]="'img' + $index"
-        type="file"
-        hidden
-        #input
-        accept="image/*"
-        class="absolute top-0 opacity-0 hover:z-100 z-90 block h-[100%] w-[100%]"
-        (change)="onFileSelected($event)"
-      />
-      <span
-        class="text-center absolute hover:opacity-[0.8] opacity-0 pt-20 top-0 h-[100%] w-[100%] transition duration-300 z-100 block cursor-pointer"
-        (click)="input.click()"
-      >
-        قم بتحميل صورة
-      </span>
+      <div class="relative h-52 w-52">
+        <button class="absolute top-2 left-2 bg-white h-8 w-8 rounded-full">
+          <mat-icon class="pt-1">close</mat-icon>
+        </button>
+        <img
+          [src]="imgSrc"
+          alt=""
+          class="block w-[100%] h-[100%] rounded object-cover"
+          [id]="'img' + $index"
+          #img
+        />
+        <input
+          [id]="'img' + $index"
+          type="file"
+          hidden
+          #input
+          accept="image/*"
+          class="absolute top-0 opacity-0 hover:z-100 z-90 block h-[100%] w-[100%]"
+          (change)="onFileSelected($event)"
+        />
+        <span
+          class="text-center absolute hover:opacity-[0.8] opacity-0 pt-20 top-0 h-[100%] w-[100%] transition duration-300 z-100 block cursor-pointer"
+          (click)="input.click()"
+        >
+          {{imgText}}
+        </span>
+      </div>
+      }
     </div>
-    }
-  </div>
-</section>
-<!-- 
-<div class="col-12 mt2">
-        
-        <h1 class="h1 m0 mb1">
-            قم بتحميل صورة <span id="availableSlots"> - اضف 4 صور اضافية الى الغاليريا</span>
-                
-        </h1>
-        
-  <div>
-    <form id="form-photo-upload-fs" action="/ar/profilemanagement/uploadphoto" method="post" enctype="multipart/form-data" hidden="" novalidate="" data-photo-auto-upload="true">
-    <input type="hidden" name="photoaction" value="upload">
-    <input type="hidden" name="pcUploader" value="true">
-    <input type="hidden" name="source" value="fs">
-    <input type="hidden" name="photo" value="">
-    <input type="file" name="uploadForm" accept="image/*">
-  </form>
-  </div>
-  <div>
-    <form id="form-photo-upload-fb" action="/ar/profilemanagement/editprofilephotosfacebook" hidden="">
-    </form>
-  </div>
-
-        <form method="post" action="/ar/profilemanagement/editprofilephotos" id="managePhotosForm" novalidate="">
-            
-            <div class="flex flex-wrap" id="sortable">
-                
-        <div id="photo-1" class="card-s card m1 flex flex-wrap bg-white shadow relative">
-            <div class="absolute top-0 left-0 z1 p2 circle flex justify-center items-center header-strip photo-position">1</div>
-            
-            <div class="flex items-end col-12 justify-center std relative">
-                
-        <div class="profile-bg" style="background-image:url('/memphoto/photo1/big/30730853.jpg?m=202505051526&amp;impolicy=facegravity-fcrop-var&amp;w=250&amp;h=250')"></div>
-    
-            </div>
-            
-                <div class="col-12 relative flex flex-column">
-                    
-                    
-            
-            <div class="flex flex-auto items-end justify-between m1-5">
-                <div class="flex items-center">
-                    <div class="me3 relative fill-action-unhighlight" title="غير الصورة">
-                        
-                        <svg class="icon-24 pointer-events-none">
-                            <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-edit"></use>
-                        </svg>
-                        
-                        <button class="pointer opacity-0 absolute top-0 right-0 bottom-0 left-0" data-edit-photo="1" form="form-photo-upload-fs" formmethod="post" formenctype="multipart/form-data"></button>
-                    </div>
-                    
-                        <div class="relative pointer me3 fill-action-unhighlight relative" title="اخفاء">
-                            
-                            <svg class="icon-30 pointer-events-none">
-                                <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-hide"></use>
-                            </svg>
-                            
-                            
-                                <div class="absolute top-0 right-0 bottom-0 left-0" data-cm-modal-url="/ar/widget/upgradeHideProfilePhotos"></div>
-                            
-                        </div>
-                    
-                </div>
-                <div class="fill-action-unhighlight relative">
-                    <div class="pointer no-highlight flex items-center relative" title="الغاء هذه الصورة بشكل دائم؟">
-                        
-                        <svg class="icon-30 pointer-events-none">
-                            <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-bin"></use>
-                        </svg>
-                        
-                        <a class="absolute top-0 right-0 bottom-0 left-0" data-cm-modal-url="/ar/profilemanagement/confirmDeletePhotoModal?delete=1&amp;cs=85058EA6C2F3E93858DC64A0E014FB09&amp;esc=4"></a>
-                    </div>
-                </div>
-            </div>
-        
-                </div>
-            
-            <input name="photoOrder" type="hidden" value="1">
-        </div>
-
-    
-        <div id="photo-2" class="card-s card m1 flex flex-wrap bg-white shadow relative">
-            <div class="absolute top-0 left-0 z1 p2 circle flex justify-center items-center header-strip photo-position">2</div>
-            
-            <div class="flex items-end col-12 justify-center std relative">
-                
-        <svg class="flex-none svg-fit avoid-clicksprofile-bg"><use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#no-image-avatar-male"></use></svg>
-    
-                    <button class="icon-50 icon-plus circle shadow mx-auto tooltip flex items-center justify-center border-none" form="form-photo-upload-fs" formmethod="post" formenctype="multipart/form-data">
-                        <svg class="icon-50 circle fill-standard tooltip pointer">
-                            <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-plus"></use>
-                        </svg>
-                        
-            <div class="tooltip-text tooltip-text truncate tooltip-text-width-auto tooltip-text-center h5 rounded p1 bg-black-alpha-85 white absolute max-width-1 no-select">قم بتحميل صورة</div>
-        
-                    </button>
-                
-            </div>
-            
-            <input name="photoOrder" type="hidden" value="2">
-        </div>
-
-    
-        <div id="photo-3" class="card-s card m1 flex flex-wrap bg-white shadow relative">
-            <div class="absolute top-0 left-0 z1 p2 circle flex justify-center items-center header-strip photo-position">3</div>
-            
-            <div class="flex items-end col-12 justify-center std relative">
-                
-        <svg class="flex-none svg-fit avoid-clicksprofile-bg"><use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#no-image-avatar-male"></use></svg>
-    
-                    <button class="icon-50 icon-plus circle shadow mx-auto tooltip flex items-center justify-center border-none" form="form-photo-upload-fs" formmethod="post" formenctype="multipart/form-data">
-                        <svg class="icon-50 circle fill-standard tooltip pointer">
-                            <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-plus"></use>
-                        </svg>
-                        
-            <div class="tooltip-text tooltip-text truncate tooltip-text-width-auto tooltip-text-center h5 rounded p1 bg-black-alpha-85 white absolute max-width-1 no-select">قم بتحميل صورة</div>
-        
-                    </button>
-                
-            </div>
-            
-            <input name="photoOrder" type="hidden" value="3">
-        </div>
-
-    
-        <div id="photo-4" class="card-s card m1 flex flex-wrap bg-white shadow relative">
-            <div class="absolute top-0 left-0 z1 p2 circle flex justify-center items-center header-strip photo-position">4</div>
-            
-            <div class="flex items-end col-12 justify-center std relative">
-                
-        <svg class="flex-none svg-fit avoid-clicksprofile-bg"><use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#no-image-avatar-male"></use></svg>
-    
-                    <button class="icon-50 icon-plus circle shadow mx-auto tooltip flex items-center justify-center border-none" form="form-photo-upload-fs" formmethod="post" formenctype="multipart/form-data">
-                        <svg class="icon-50 circle fill-standard tooltip pointer">
-                            <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-plus"></use>
-                        </svg>
-                        
-            <div class="tooltip-text tooltip-text truncate tooltip-text-width-auto tooltip-text-center h5 rounded p1 bg-black-alpha-85 white absolute max-width-1 no-select">قم بتحميل صورة</div>
-        
-                    </button>
-                
-            </div>
-            
-            <input name="photoOrder" type="hidden" value="4">
-        </div>
-
-    
-        <div id="photo-5" class="card-s card m1 flex flex-wrap bg-white shadow relative">
-            <div class="absolute top-0 left-0 z1 p2 circle flex justify-center items-center header-strip photo-position">5</div>
-            
-            <div class="flex items-end col-12 justify-center std relative">
-                
-        <svg class="flex-none svg-fit avoid-clicksprofile-bg"><use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#no-image-avatar-male"></use></svg>
-    
-                    <button class="icon-50 icon-plus circle shadow mx-auto tooltip flex items-center justify-center border-none" form="form-photo-upload-fs" formmethod="post" formenctype="multipart/form-data">
-                        <svg class="icon-50 circle fill-standard tooltip pointer">
-                            <use xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-plus"></use>
-                        </svg>
-                        
-            <div class="tooltip-text tooltip-text truncate tooltip-text-width-auto tooltip-text-center h5 rounded p1 bg-black-alpha-85 white absolute max-width-1 no-select">قم بتحميل صورة</div>
-        
-                    </button>
-                
-            </div>
-            
-            <input name="photoOrder" type="hidden" value="5">
-        </div>
-
-    
-            </div>
-            
-        </form>
-        
-        <div class="block my2 pointer border-color" data-expand="alternatives">
-            <div class="flex items-center border-color">
-                <svg class="icon icon-20 flex-none fill-action-unhighlight me1 rotate-90">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/desktop/icons/icons.svg?v=20250521041111&amp;#icon-menuright"></use>
-                </svg>
-                <h3 class="m0">غير قادر على تحميل صور؟ حاول هذه البدائل  »</h3>
-            </div>
-        </div>
-        <div data-expand-collaspe="alternatives" class="hide">
-            <ul class="flex flex-wrap list-reset instructions mt4">
-                    
-                    <li class="col-4 me4 mb4 p2 bg-white shadow" data-getusermedia-check="true">
-                        <div id="my_camera"></div>
-                        <div>
-                            <h2 class="mb1">كاميرا ويب</h2>
-                            <form name="webcamPhoto" novalidate="">
-                                <div class="flex justify-center">
-                                    <div class="inline-block button relative btn-color btn-bg h4 mt2 py1 px2 rounded shadow border-none upper-case pointer overflow-hidden fade-in" data-web-cam-open="">Open Camera</div>
-                                </div>
-                                <video autoplay="true" class="fit hide"></video>
-                                <img src="" class="fit hide" data-web-cam-preview="">
-                                <div class="flex justify-center">
-                                    <div class="inline-block button relative btn-color btn-bg h4 mt2 py1 px2 rounded shadow border-none upper-case pointer overflow-hidden fade-in hide" data-web-cam-take="">قم بأخذ صورة</div>
-                                    <button name="submitPhoto" type="submit" class="relative btn-color btn-bg h4 mt2 ms1 py1 px2 rounded shadow border-none upper-case pointer overflow-hidden hide">تحميل</button>
-                                </div>
-                                <div class="flex justify-end">
-                                    <a class="link hide mt2" data-web-cam-close="">إغلاق</a>
-                                </div>
-
-                                <input id="results" name="capturedPhoto" value="" type="hidden" readonly="readonly">
-                                <input name="uploadForm" id="uploadForm" type="hidden" value="1" readonly="readonly">
-                            </form>
-                        </div>
-                    </li>
-
-                    
-                    <li class="col-4 me4 mb4 p2 bg-white shadow">
-                        <h2 class="mb1">هاتف محمول</h2>
-                        
-                        <p>هل لديك صورة لك على هاتفك المحمول؟ ارسل الصورة عبر بريدك الالكتروني المسجل على الموقع الى <strong>photosuslima.com</strong>. </p>
-                    </li>
-
-                    
-                    <li class="col-4 me4 mb4 p2 bg-white shadow">
-                        <h2 class="mb1">بريد إلكتروني</h2>
-                        ارسل صورة عبر البريد الإلكتروني الخاص بك المسجل الى <a href="mailto: photos@muslima.com?subject=Photos for Member 30730853">photosuslima.com</a> 
-                    </li>
-
-                    
-                    <li class="col-4 me4 mb4 p2 bg-white shadow">
-                        <h2 class="mb1">نشر</h2>
-                        <h3 class="m0 mb1">ارسل صور الى:</h3>
-                        <div>
-                            Muslima.com<br>
-                            PO BOX 9304<br>
-                            Gold Coast MC QLD 9726<br>
-                            Australia
-                        </div>
-                        
-                        <p class="bold italic m0 mt1">تذكر أن تدرج اسمك الكامل ورقم عضويتك (30730853) على ظهر كل صورة</p>
-                    </li>
-                </ul>
-        </div>
-        
-        <h2 class="mt2 mb1">ارشادات الصور</h2>
-        <div class="flex items-end">
-            
-            
-                <div class="me3">
-                    <h3 class="m0 mb1">كيف تختار صور مناسبة للغاليريا:</h3>
-                    <div class="flex">
-                        <div class="me2 col-6">
-                            <ul class="m0">
-                                <li>تظهرك تفعل شيئا تستمتع به</li>
-                                <li>تعكس شخصيتك</li>
-                                <li>على الأقل صورة واحدة تظهر جسمك الكامل</li>
-                                <li>تظهرك في مكان فريد (طرق لبدء محادثات)</li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="m0">
-                                <li>تبين وجهك بوضوح</li>
-                                <li>ذات جودة عالية و مضيئة بشكل جيد</li>
-                                <li>يجب ان تحتوي بك</li>
-                                <li>لا تحتوي على العري</li>
-                            </ul>
-                       </div>
-                    </div>
-                </div>
-                <div class="flex">
-                   <img src="/assets/images/profilemanagement/ar/Male/personality.jpg" class="guidelinepic" width="80" height="80"><img src="/assets/images/profilemanagement/ar/Male/fullbody.jpg" class="guidelinepic" width="80" height="80">
-                </div>
-           
-        </div>
-        
-    </div> -->
+  </section>
+  <section class="md:col-span-3 col-span-12">
+    <h1 class="text-xl">أرشادات الصور</h1>
+    <ul class="my-3">
+      <li class="my-1 mx-1 text-gray-500">تظهرك تفعل شيئا تستمتع به</li>
+      <li class="my-1 mx-1 text-gray-500">تعكس شخصيتك</li>
+      <li class="my-1 mx-1 text-gray-500">
+        على الأقل صورة واحدة تظهر جسمك الكامل
+      </li>
+      <li class="my-1 mx-1 text-gray-500">
+        تظهرك في مكان فريد (طرق لبدء محادثات)
+      </li>
+    </ul>
+  </section>
+</main>

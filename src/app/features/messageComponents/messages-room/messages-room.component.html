@@ -6,7 +6,7 @@
       alt=""
     />
   </a>
-  <a routerLink="">
+  <a [routerLink]="['profile', 1]">
     <div class="flex flex-col items-center">
       <div class="text-gray-500">
         <h2 class="text-lg">Mohamed Ashraf</h2>
@@ -63,12 +63,49 @@
       />
     </a>
 
-    <div class="p-3 bg-gray-200 rounded my-3 relative">
+    <div class="p-3 my-2 bg-gray-200 rounded my-3 relative">
       <div class="text-gray-400 absolute left-0 right-0 top-[-20px]">
         <span>10-مايو-2025 , </span>
         <span>11:22 </span>
       </div>
       <p class="text-gray-500">this is content of messages</p>
     </div>
+  </section>
+  @for (item of messages; track $index) {
+  <section class="flex gap-3 items-center flex-row-reverse">
+    <a>
+      <img
+        class="h-10 w-10 md:h-20 md:w-20 block rounded-full"
+        src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
+        alt=""
+      />
+    </a>
+
+    <div class="my-2 w-auto rounded my-3 relative">
+      <div class="text-gray-400">
+        <span>10-مايو-2025 , </span>
+        <span>11:22 </span>
+      </div>
+      <p class="border-0 p-3 text-center text-gray-500 bg-gray-200">
+        {{ item }}
+      </p>
+    </div>
+  </section>
+  }
+
+  <section class="flex gap-2">
+    <input
+      type="text"
+      class="w-full p-3 rounded bg-gray-200 outline-none"
+      placeholder="اكتب رسالتك هنا..."
+      #input
+    />
+    <button
+      class="rounded py-4 px-2 text-white"
+      style="background-color: var(--main-color)"
+      (click)="addMessage(input.value)"
+    >
+      إرسال
+    </button>
   </section>
 </section>

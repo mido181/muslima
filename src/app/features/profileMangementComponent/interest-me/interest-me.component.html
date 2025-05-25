@@ -1,1 +1,72 @@
-<p>interest-me works!</p>
+<section class="flex justify-between">
+  <div>
+    <h1 class="mb-3 mt-4 text-xl font-light text-inherit">
+      تغيير الهوايات والاهتمامات
+    </h1>
+    <p class="mb-8">
+      دع الآخرين يعرفون ما هي اهتماماتك وساعدنا على مواصلتك مع المستخدمين
+      الآخرين الذين قد يكون لها اهتمامات مماثلة.
+    </p>
+  </div>
+  <div>
+    <a
+      class="p-2 shadow text-white block w-50 text-center rounded"
+      style="background-color: var(--main-color)"
+      [routerLink]="['profile', 1]"
+      >عرض حسابي الشخصي</a
+    >
+  </div>
+</section>
+<section class="flex flex-wrap gap-2">
+  @for (item of selectedMeList; track $index) {
+  <button class="py-3 px-2 shadow rounded bg-blue-300 text-white relative">
+    <span
+      class="rounded-full bg-black h-5 w-5 absolute top-[-2px] left-[-2px] text-center block"
+      (click)="deleteInterest($index)"
+    >
+      x
+    </span>
+    {{ item }}
+  </button>
+  }
+</section>
+
+<div class="wrap mt-3">
+  <p class="text-lg py-2">{{ interestedData.activites.name }}</p>
+  <div class="flex gap-2 flex-wrap">
+    @for (item of interestedData.activites.list; track $index) {
+    <button
+      class="py-2 px-2 shadow rounded bg-black-300 text-gray-500"
+      (click)="intrestedMe(item!, $index, 'activites')"
+    >
+      {{ item }}
+    </button>
+    }
+  </div>
+</div>
+<div class="wrap mt-3">
+  <p class="text-lg py-2">{{ interestedData.food.name }}</p>
+  <div class="flex gap-2 flex-wrap">
+    @for (item of interestedData.food.list; track $index) {
+    <button
+      class="py-2 px-2 shadow rounded bg-black-300 text-gray-500"
+      (click)="intrestedMe(item!, $index, 'food')"
+    >
+      {{ item }}
+    </button>
+    }
+  </div>
+</div>
+<div class="wrap mt-3">
+  <p class="text-lg py-2">{{ interestedData.music.name }}</p>
+  <div class="flex gap-2 flex-wrap">
+    @for (item of interestedData.music.list; track $index) {
+    <button
+      class="py-2 px-2 shadow rounded bg-black-300 text-gray-500"
+      (click)="intrestedMe(item!, $index, 'music')"
+    >
+      {{ item }}
+    </button>
+    }
+  </div>
+</div>
