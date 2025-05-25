@@ -100,11 +100,13 @@
       placeholder="اكتب رسالتك هنا..."
       #input
     />
-    <button
+
+      <button
       class="rounded py-4 px-2 text-white"
       style="background-color: var(--main-color)"
       (click)="addMessage(input.value)"
-    >
+      (click)="input.value = ''"
+      >
       إرسال
     </button>
   </section>
