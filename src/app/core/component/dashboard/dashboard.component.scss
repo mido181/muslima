@@ -1,0 +1,21 @@
+select option {
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Hover state (limited support) */
+select option:hover {
+  background-color: #e9ecef;
+}
+
+/* Selected option (limited support) */
+select option:checked {
+  color: white;
+}
+
+/* Disabled option */
+select option:disabled {
+  color: #6c757d;
+}

@@ -2,7 +2,6 @@
   <a label routerLink="/home"> العودة إلي النتائج</a>
   <p value>170 / 4</p>
 </app-orderby>
-
 <main class="mx-10 xl:mx-30">
   <section class="grid col-12 md:grid-cols-8">
     <div
@@ -15,10 +14,11 @@
       >
         <ng-template #item let-item>
           <img
-            [src]="item"
+            [src]="user?.profilePicture"
             style="min-height: 300px; min-width: 300px; max-width: 100%"
           />
         </ng-template>
+
         <ng-template #thumbnail let-item>
           <img [src]="item" style="width: 100%" />
         </ng-template>
@@ -33,14 +33,16 @@
               <span class="text-gray-400">
                 <mat-icon>person</mat-icon>
               </span>
-              <strong>Haticenurnaz</strong>
+              <strong class="">
+                {{ user?.name }}
+              </strong>
               <div>
-                <app-user-status></app-user-status>
+                <!-- <app-user-status [status]="user.isOnline"></app-user-status> -->
               </div>
             </div>
             <div class="text-gray-500 flex flex-col gap-2">
-              <p>35 • Amsterdam, Noord-Holland, هولندا</p>
-              <p>أنثى / ارمل / ID: 30637686</p>
+              <p>{{ user?.age }} • {{ user?.city }},{{ user?.country }}</p>
+              <p>{{ user?.gender }} / {{ user?.age }} / ID: 30637686</p>
               <p>ابحث على ذكر 25 - 65 الذين يعيشون فى مجال 250</p>
               <p>آخر نشاط منذ 2 أسابيع</p>
             </div>

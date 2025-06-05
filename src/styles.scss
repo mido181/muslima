@@ -1,10 +1,8 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-
 @use "tailwindcss";
 // Removed @plugin as it is not valid in SCSS. Add the plugin in the Tailwind CSS configuration file instead.
 @use "@angular/material" as mat;
-
 
 html {
   @include mat.theme(
@@ -43,8 +41,7 @@ body {
   font-size: 14px !important;
   font-weight: 300 !important;
   margin: 0;
-height: 100vh !important;
-
+  height: 100vh !important;
 }
 
 .cdk-overlay-connected-position-bounding-box {

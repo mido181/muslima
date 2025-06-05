@@ -1,40 +1,25 @@
-<app-toaster></app-toaster>
-
 <app-sub-header>
-  <section
-    class="my-10 md:flex mx-5 gap-4 flex-wrap items-center justify-between"
-  >
-    <div class="flex gap-5">
-      <a [routerLink]="['/profile', 1]">
+  <section class="flex items-center justify-start">
+    <a [routerLink]="['/profile', 1]">
+      <div class="flex justify-center items-center gap-5">
         <img
           class="h-20 w-20 block rounded-full"
           src="assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg"
           alt=""
         />
-      </a>
-      <div class="flex flex-col gap-3">
-        <h5 class="text-whitxe">مرحبا Mohamed</h5>
 
-        <button
-          class="hidden md:block rounded p-3 text-white max min-h-[3rem]"
+        <h5
+          class="text-white p-2 rounded"
           style="background-color: var(--main-color)"
         >
-          <a [routerLink]="['/profile', 1]">
-            قم بتحميل صور متعددة الاغراض الي معرض الصور الخاص بك
-          </a>
-        </button>
-        <button
-          class="block md:hidden rounded p-3 text-white max min-h-[3rem]"
-          style="background-color: var(--main-color)"
-        >
-          <a [routerLink]="['/profile', 1]"> أذهب لمعرض الصور </a>
-        </button>
+          مرحبا {{ userName }}
+        </h5>
       </div>
-    </div>
-    <div class="hidden md:flex gap-15 xl:mx-20">
+    </a>
+    <!-- <div class="hidden md:flex gap-15 xl:mx-20">
       @for (item of icons; track $index) {
       <ng-container>
-        <app-border-circle>
+         <app-border-circle>
           <mat-icon
             [matTooltip]="item.tooltipName"
             icon
@@ -54,27 +39,35 @@
           >
             2
           </span>
-        </app-border-circle>
+        </app-border-circle> 
       </ng-container>
       }
-    </div>
+    </div> -->
   </section>
 </app-sub-header>
-<main class="px-15 mt-5">
+<main class="mt-5">
   <app-orderby>
     <span label>1 - 35 من 1453</span>
-    <div value>
-      <span>الترتيب حسب:</span>
-      <select class="inline-block" name="" id="">
-        <option value="">1</option>
-        <option value="">1</option>
-        <option value="">1</option>
-        <option value="">1</option>
-      </select>
+    <div class="card flex justify-center" value>
+      <p-select
+        [options]="filter"
+        [(ngModel)]="selected"
+        (onChange)="selectedVal($event.value)"
+        optionLabel="name"
+        placeholder="ترتيب حسب "
+        class="w-full md:w-56"
+      />
     </div>
   </app-orderby>
-  <app-card-contanier></app-card-contanier>
-  <app-ads></app-ads>
-  <app-card-contanier></app-card-contanier>
+  <!-- <app-ads></app-ads> -->
+  <section
+    class="transition duration-3 translate thick mt-2 grid grid-cols-12 gap-3"
+  >
+    @for (user of users; track $index) {
+    <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
+      <app-card [user]="user"></app-card>
+    </div>
+    }
+  </section>
   <app-pagination></app-pagination>
 </main>

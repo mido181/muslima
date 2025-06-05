@@ -1,6 +1,28 @@
-import { Component, Input, input } from '@angular/core';
+import {
+  Component,
+  Input,
+  input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { CardComponent } from '../card/card.component';
-
+interface Iuser {
+  name: string;
+  email: string;
+  country: string;
+  gender: string;
+  city: string;
+  height: number;
+  weight: number;
+  profilePicture: string;
+  isEmailVerified: boolean;
+  isPhoneVerified: boolean;
+  isOnline: boolean;
+  hideAge: boolean;
+  hideLastSeen: boolean;
+  lastSeen: Date;
+}
 @Component({
   selector: 'app-card-contanier',
   imports: [CardComponent],
@@ -8,10 +30,5 @@ import { CardComponent } from '../card/card.component';
   styleUrl: './card-contanier.component.scss',
 })
 export class CardContanierComponent {
-  @Input() Quntity: number = Math.floor(Math.random() * 12);
-
-  cardQuntity() {
-    let qunt = Array.from(this.Quntity.toString().repeat(3));
-    return qunt;
-  }
+  
 }

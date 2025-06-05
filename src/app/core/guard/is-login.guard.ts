@@ -1,22 +1,24 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { LoginService } from '../../services/auth/login.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { ToasterService } from '../../services/toaster.service';
+import { map } from 'rxjs';
 
 export const isLoginGuard: CanActivateFn = (route, state) => {
   const toaster = inject(ToasterService);
   const router = inject(Router);
-  const login = inject(LoginService);
+  const authService = inject(AuthService);
 
-  if (login.currentUserValue) {
-    // toaster.successToaster('Login successful', 'Success');
-    return true;
-  }
-  const timer = setTimeout(() => {
-    router.navigate(['/login']);
-  }, 1000);
+  return authService.checkAuthStatus().pipe(
+    map((response) => {
+      if (response) {
+        return true;
+      } else {
+        toaster.rejectToaster('يجب تسجيل الدخول اولا', 'Error');
+        // router.navigate(['/login']);
 
-  toaster.rejectToaster('يجب تسجيل الدخول اولا', 'Error');
-
-  return false;
+        return false;
+      }
+    })
+  );
 };

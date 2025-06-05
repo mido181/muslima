@@ -1,26 +1,25 @@
-<div>
-  <a [routerLink]="['/profile/', 1]">
-    <img
-      class="block h-[235px] w-[100%]"
-      src="assets/pexels-photo-54277.jpeg"
-      alt=""
-    />
+<div class="relative">
+  <div class="absolute top-5 left-3">
+    <app-user-status [status]="user.isOnline"></app-user-status>
+  </div>
+  <a [routerLink]="['/profile/', user._id]">
+    <img class="block w-[100%] h-[300px]" [src]="user.profilePicture" alt="" />
   </a>
   <div class="p-2 absolute top-0 flex gap-2">
-    <p-tag severity="success" value="18" />
-    <p-tag severity="info" value="cairo" />
+    <p-tag severity="success" [value]="`${user.age}`" />
+    <p-tag severity="info" [value]="user.country" />
+    <p-tag>
+      <span class="fi fi-eg text-[1.4rem]"></span>
+    </p-tag>
   </div>
 </div>
 <div class="relative px-5 py-3 flex flex-col gap-2 max-h-[170px]">
-  <app-user-status></app-user-status>
   <div>
     <p class="text-[1rem]">
-      <strong> Mohamed A </strong>
+      <strong>{{user.name}}</strong>
     </p>
   </div>
-  <div>
-    <p class="text-gray-500">ابحث علي: انثي , 30-30</p>
-  </div>
+  <div></div>
   <div class="flex justify-between items-center">
     <div class="text-gray-500 flex gap-3 justify-center items-center text-big">
       <button
@@ -35,7 +34,7 @@
       <a [routerLink]="['/messages']">
         <button
           class="flex items-center"
-          [matTooltip]="'ارسل رسالة إلى' + talkWith"
+          [matTooltip]="' ارسل رسالة إلى ' + user.name"
         >
           <mat-icon class="text-big">chat_bubble</mat-icon>
         </button>

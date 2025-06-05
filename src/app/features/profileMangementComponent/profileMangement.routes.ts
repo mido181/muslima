@@ -4,10 +4,12 @@ export const profileManagementRoutes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./profile-mangement/profile-mangement.component').then(c=>c.ProfileMangementComponent),
+      import('./profile-mangement/profile-mangement.component').then(
+        (c) => c.ProfileMangementComponent
+      ),
     children: [
       {
-        path: '',
+        path: ':id',
         loadComponent: () =>
           import('./edit-profile/edit-profile.component').then(
             (c) => c.EditProfileComponent

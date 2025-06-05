@@ -22,6 +22,7 @@ export class ProfileImagesComponent {
     'assets/imgs/default-male-avatar-profile-icon-social-media-user-free-vector.jpg';
   reader = new FileReader();
   imgText = 'قم بتحميل صورة';
+  
   onFileSelected(e: any) {
     const file = e.target.files[0];
     this.setimage = this.changeImgs(e.target.id);

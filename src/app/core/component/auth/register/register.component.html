@@ -2,24 +2,10 @@
   <div class="flex flex-col lg:w-[30%] md:w-[50%] mx-10 gap-1 items-start">
     <p class="text-xl">اهلا بيك في مسلم</p>
     <p>تعرف علي اصدقاء جدد وكون رابطة علاقات قوية</p>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="registerForm">
       <mat-form-field class="w-[100%]">
-        <mat-label for="">الاسم الأول </mat-label>
-        <input
-          type="text"
-          formControlName="firstName"
-          name="firstName"
-          matInput
-        />
-      </mat-form-field>
-      <mat-form-field class="w-[100%]">
-        <mat-label for="">الاسم الأخير</mat-label>
-        <input
-          type="text"
-          formControlName="lastName"
-          name="lastName"
-          matInput
-        />
+        <mat-label for="">الاسم </mat-label>
+        <input type="text" formControlName="name" name="name" matInput />
       </mat-form-field>
 
       <mat-form-field class="w-[100%]">
@@ -29,12 +15,18 @@
           formControlName="email"
           name="email"
           type="email"
-          placeholder="Ex. pat@example.com"
+          placeholder="Ex.pat@example.com"
         />
-        @if (loginForm.hasError('email') && !loginForm.hasError('required')) {
-        <mat-error>Please enter a valid email address</mat-error>
-        } @if (loginForm.hasError('required')) {
-        <mat-error>Email is <strong>required</strong></mat-error>
+
+        @if (getControl("email")!.touched && getControl("email")!.invalid) {
+
+        <div>
+          @if (getControl("email")!.hasError('email')) {
+          <mat-error class="p-2">Please enter a valid email address</mat-error>
+          } @if (getControl("email")!.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+          }
+        </div>
         }
       </mat-form-field>
       <mat-form-field class="w-[100%]">
@@ -49,18 +41,34 @@
 
       <mat-form-field class="w-[100%]">
         <mat-label for="">إعادة كتابة كلمة السر</mat-label>
-        <input
-          type="password"
-          formControlName="rePassword"
-          name="rePassword"
-          matInput
-        />
+        <input type="password" matInput />
       </mat-form-field>
-
+      <mat-form-field class="w-[100%]">
+        <mat-label for="">البلد </mat-label>
+        <input type="text" formControlName="country" name="country" matInput />
+      </mat-form-field>
+      <mat-form-field class="w-[100%]">
+        <mat-label for="">المدينة </mat-label>
+        <input type="text" formControlName="city" name="city" matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> تاريخ ميلادك </mat-label>
+        <input formControlName="birthDate"  matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
       <mat-radio-group aria-label="Select an option">
         <mat-label for="">النوع</mat-label>
-        <mat-radio-button value="male">ذكر</mat-radio-button>
-        <mat-radio-button value="female">أنثي</mat-radio-button>
+        <mat-radio-button (change)="selectValue($event.value)" value="male"
+          >ذكر</mat-radio-button
+        >
+        <mat-radio-button (change)="selectValue($event.value)" value="female"
+          >أنثي</mat-radio-button
+        >
       </mat-radio-group>
 
       <div class="flex flex-col gap-2 justify-center">
@@ -77,9 +85,16 @@
         <button
           class="w-[100%] py-3 px-4 rounded text-white"
           style="background-color: var(--sec-color)"
+          (click)="submit()"
+          [disabled]="this.registerForm.invalid"
+          [class]="{
+            'opacity-[0.4]': this.registerForm.invalid,
+            cursor: this.registerForm.invalid
+          }"
         >
           سجل
         </button>
+
         <a routerLink="/login" class="text-gray-500"> هل لديك حساب بالفعل ؟</a>
       </div>
     </form>

@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { LoginService } from '../../../../services/auth/login.service';
+import { AuthService } from '../../../../services/auth/auth.service';
 import { Subject, Subscription, takeUntil, tap } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
 import { ToasterService } from '../../../../services/toaster.service';
@@ -20,38 +20,35 @@ import { ToasterService } from '../../../../services/toaster.service';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-  RouterLink
+    RouterLink,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
-  private toaster = inject(ToasterService);
- 
-  private router = inject(Router);
-  private loginService = inject(LoginService);
+  private loginService = inject(AuthService);
   private fb: FormBuilder = inject(FormBuilder);
   loginForm!: FormGroup;
+
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
   login() {
-    this.loginService
-      .login(this.loginForm.value.email, this.loginForm.value.password, true)
+
+      console.log(this.loginForm.invalid);
+       
+      this.loginService
+      .login(this.loginForm.value)
       .pipe(
         takeUntil(this.destroy$),
-        tap((res) => {
-          this.router.navigate(['/home']);
-          this.toaster.successToaster('تم تسجيل الدخول بنجاح');
-          this.loginService.currentUserStatus$.next(true);
-        })
       )
-      .subscribe();
+      .subscribe(console.log);
+    
   }
 
   ngOnDestroy() {

@@ -1,12 +1,9 @@
 import { NgFor } from '@angular/common';
 import {
-  AfterViewInit,
   Component,
   inject,
   OnInit,
-  TemplateRef,
   ViewChild,
-  viewChild,
 } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/component/header/header.component';
@@ -15,7 +12,7 @@ import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatBadge } from '@angular/material/badge';
 import { SelectedActivitiesService } from './services/selected-activities.service';
 import { Toast } from 'primeng/toast';
-import { LoginService } from './services/auth/login.service';
+import { AuthService } from './services/auth/auth.service';
 import { ToasterService } from './services/toaster.service';
 @Component({
   standalone: true,
@@ -35,10 +32,12 @@ import { ToasterService } from './services/toaster.service';
 export class AppComponent implements OnInit {
   title = 'new app';
   private activitiesServices = inject(SelectedActivitiesService);
-  private loginSerivce = inject(LoginService);
+  private authSerivce = inject(AuthService);
   private toasterService = inject(ToasterService);
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authSerivce.checkAuthStatus().subscribe(console.log);
+  }
 
   changeActivties(name: 'interest' | 'favorite') {
     this.activitiesServices.activitiesSelected$.next(name);
@@ -52,7 +51,6 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.loginSerivce.logout();
-    this.toasterService.successToaster('تم تسجيل الخروج بنجاح');
+    this.authSerivce.logout.subscribe();
   }
 }

@@ -1,18 +1,29 @@
 import { Routes } from '@angular/router';
 import { isLoginGuard } from './core/guard/is-login.guard';
+import { authGuard } from './core/guard/auth.guard';
 
 export const routes: Routes = [
   {
+    path: '',
+    loadComponent() {
+      return import('./core/component/dashboard/dashboard.component').then(
+        (c) => c.DashboardComponent
+      );
+    },
+    canActivate: [authGuard],
+  },
+  {
     path: 'home',
     loadComponent() {
-      return import('./core/component/home/home.component').then(
+      return import('./core/component/home/homecomponent').then(
         (c) => c.HomeComponent
       );
     },
+    canActivate: [isLoginGuard],
   },
   {
     path: 'online',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/online/online.component').then(
         (c) => c.OnlineComponent
@@ -22,7 +33,7 @@ export const routes: Routes = [
 
   {
     path: 'pricePlans',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/payment/payment.component').then(
         (c) => c.PaymentComponent
@@ -32,7 +43,7 @@ export const routes: Routes = [
 
   {
     path: 'matches',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
     loadChildren() {
       return import('./features/matchesComponents/matches.routes').then(
         (R) => R.MATCHES_ROUTE
@@ -41,29 +52,32 @@ export const routes: Routes = [
   },
   {
     path: 'profile/:id',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
     loadComponent() {
       return import(
         './features/profileComponents/profile/profile.component'
       ).then((c) => c.ProfileComponent);
     },
   },
-    {
+  {
     path: 'profile-mangement',
-    loadChildren:() => import('./features/profileMangementComponent/profileMangement.routes').then(c=>c.profileManagementRoutes),
-    // canActivate: [isLoginGuard],
+    loadChildren: () =>
+      import(
+        './features/profileMangementComponent/profileMangement.routes'
+      ).then((c) => c.profileManagementRoutes),
+    canActivate: [isLoginGuard],
   },
 
   {
     path: 'login',
-    canActivate: [],
-
     loadComponent() {
       return import('./core/component/auth/login/login.component').then(
         (c) => c.LoginComponent
       );
     },
+    canActivate: [authGuard],
   },
+
   {
     path: 'register',
     loadComponent() {
@@ -71,17 +85,20 @@ export const routes: Routes = [
         (c) => c.RegisterComponent
       );
     },
+    canActivate: [authGuard],
   },
   {
     path: 'blockList',
+    canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/blocked/blocked.component').then(
         (c) => c.BlockedComponent
       );
     },
   },
-    {
+  {
     path: 'viewedProfile',
+    canActivate: [isLoginGuard],
     loadComponent() {
       return import('./features/watch-profile/watch-profile.component').then(
         (c) => c.WatchProfileComponent
@@ -91,7 +108,7 @@ export const routes: Routes = [
 
   {
     path: 'messages',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
     loadChildren() {
       return import('./features/messageComponents/Message.routes').then(
         (R) => R.MESSAGE_ROUTE
@@ -100,7 +117,7 @@ export const routes: Routes = [
   },
   {
     path: 'interest',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
     async loadChildren() {
       const R = await import('./features/interestComponents/interest.routes');
       return R.INTEREST_ROUTE;
@@ -118,7 +135,7 @@ export const routes: Routes = [
 
   {
     path: 'favorite',
-    // canActivate: [isLoginGuard],
+    canActivate: [isLoginGuard],
 
     async loadChildren() {
       const R = await import('./features/interestComponents/interest.routes');
@@ -126,6 +143,6 @@ export const routes: Routes = [
     },
   },
 
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: '/' },
 ];

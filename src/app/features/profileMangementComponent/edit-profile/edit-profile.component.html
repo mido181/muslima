@@ -1,52 +1,88 @@
 <h1 class="text-xl">تعديل الملف الشخصي</h1>
 
 <section class="py-10 px-5">
-  <form
-    class="grid items-center place-content-center grid-cols-12 gap-3 w-[100%]"
-    [formGroup]="editForm"
-  >
-    <mat-form-field class="col-span-12 md:col-span-6">
-      <mat-label for="">الاسم الاول</mat-label>
-      <input
-        matInput
-        formControlName="firstname"
-        name="firstname"
-        type="text"
-        placeholder="Mohamed"
-      />
-      <!-- @if (loginForm.hasError('email') && !loginForm.hasError('required')) {
+  <form [formGroup]="editForm">
+    <div class="flex justify-center my-5">
+      <section class="relative h-52 w-52 text-center">
+        <button class="absolute top-2 left-2 bg-white h-8 w-8 rounded-full">
+          <mat-icon class="pt-1">close</mat-icon>
+        </button>
+        <img
+          [src]="user?.profilePicture"
+          alt=""
+          class="block w-[100%] h-[100%] rounded object-cover"
+          id="img"
+          #img
+        />
+        <input
+          id="img"
+          type="file"
+          hidden
+          #input
+          accept="image/*"
+          class="absolute top-0 opacity-0 hover:z-100 z-90 block h-[100%] w-[100%]"
+          (change)="onFileSelected($event)"
+        />
+        <span
+          class="text-center absolute hover:opacity-[0.8] opacity-0 pt-20 top-0 h-[100%] w-[100%] transition duration-300 z-100 block cursor-pointer"
+          (click)="input.click()"
+        >
+          {{ imgText }}
+        </span>
+      </section>
+    </div>
+
+    <div
+      class="grid items-center place-content-center grid-cols-12 gap-3 w-[100%]"
+    >
+      <mat-form-field class="col-span-12 md:col-span-6">
+        <mat-label for="">الاسم الاول</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          name="name"
+          type="text"
+          placeholder="Mohamed"
+        />
+        <!-- @if (loginForm.hasError('email') && !loginForm.hasError('required')) {
         <mat-error>Please enter a valid email address</mat-error>
         } @if (loginForm.hasError('required')) {
         <mat-error>Email is <strong>required</strong></mat-error>
         } -->
-    </mat-form-field>
-    <mat-form-field class="col-span-12 md:col-span-6">
-      <mat-label for="">أسم العائلة</mat-label>
-      <input type="text" formControlName="lastname" name="lastname" matInput />
-    </mat-form-field>
-    <mat-form-field class="col-span-12 md:col-span-6">
-      <mat-label for="">الايميل</mat-label>
-      <input type="email" formControlName="email" name="email" matInput />
-    </mat-form-field>
-    <mat-form-field class="col-span-12 md:col-span-6">
-      <mat-label for="">phone</mat-label>
-      <input type="phone" formControlName="phone" name="phone" matInput />
-    </mat-form-field>
-    <mat-form-field class="col-span-12 md:col-span-6">
-      <mat-label for="">الدولة</mat-label>
-      <input type="text" formControlName="country" name="country" matInput />
-    </mat-form-field>
-    <mat-form-field class="col-span-12 md:col-span-6">
-      <mat-label for="">المدينة</mat-label>
-      <input type="text" formControlName="city" name="city" matInput />
-    </mat-form-field>
+      </mat-form-field>
+      <!-- <mat-form-field class="col-span-12 md:col-span-6">
+        <mat-label for="">أسم العائلة</mat-label>
+        <input
+          type="text"
+          formControlName="lastname"
+          name="lastname"
+          matInput
+        /> -->
+      <!-- </mat-form-field> -->
+      <mat-form-field class="col-span-12 md:col-span-6">
+        <mat-label for="">الايميل</mat-label>
+        <input type="email" formControlName="email" name="email" matInput />
+      </mat-form-field>
+      <!-- <mat-form-field class="col-span-12 md:col-span-6">
+        <mat-label for="">phone</mat-label>
+        <input type="phone" formControlName="phone" name="phone" matInput />
+      </mat-form-field> -->
+      <mat-form-field class="col-span-12 md:col-span-6">
+        <mat-label for="">الدولة</mat-label>
+        <input type="text" formControlName="country" name="country" matInput />
+      </mat-form-field>
+      <mat-form-field class="col-span-12 md:col-span-6">
+        <mat-label for="">المدينة</mat-label>
+        <input type="text" formControlName="city" name="city" matInput />
+      </mat-form-field>
 
-    <button
-      (click)="edit()"
-      class="w-[100%] py-3 px-4 rounded text-white"
-      style="background-color: var(--sec-color)"
-    >
-      تعديل
-    </button>
+      <button
+        (click)="SubmitEdit()"
+        class="w-[100%] py-3 px-4 rounded text-white"
+        style="background-color: var(--sec-color)"
+      >
+        تعديل
+      </button>
+    </div>
   </form>
 </section>
